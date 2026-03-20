@@ -4,21 +4,21 @@
 @theme {
   /* Backgrounds */
   --color-bg: #080808; /* Dark charcoal  */
-  --color-card: #; /* white */
+  --color-card: oklch(0.18 0.02 250); /* white */
 
   /* Text */
-  --color-text: oklch(20% 0.02 260); /* slate-900 */
-  --color-text-muted: oklch(50% 0.02 260); /* slate-600 */
+  --color-text: oklch(0.92 0.01 260); /* slate-900 */
+  --color-text-muted: oklch(0.65 0.02 260); /* slate-600 */
 
   /* Borders */
-  --color-border: oklch(90% 0.01 250); /* slate-200 */
+  --color-border: oklch(0.30 0.02 250); /* slate-200 */
 
   /* Primary theme */
-  --color-primary: oklch(50% 0.22 260); /* blue */
-  --color-primary-hover: oklch(40% 0.22 260);
+  --color-primary: #2793F4; /* blue */
+  --color-primary-hover: #074B87;
 
   /* Secondary theme */
-  --color-secondary: oklch(70% 0.15 35); /* orange */
+  --color-secondary:oklch(0.25 0.02 250); /* orange */
 
   /* Status colors */
   --color-success: oklch(70% 0.18 145); /* green */
@@ -59,3 +59,5 @@
     rgba(88, 28, 135, 0.9)
   );
 }
+
+/*Background Grid Animation */

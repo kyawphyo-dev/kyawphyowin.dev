@@ -21,9 +21,19 @@ export default function Navbar() {
     >
       <h1 className="text-white text-3xl font-bold cursor-pointer"></h1>
 
-      <ul className="flex gap-8 text-sm text-gray-400 items-center">
-        <li className="hover:text-primary cursor-pointer transition">ABOUT</li>
-        <li className="hover:text-primary cursor-pointer transition">SKILLS</li>
+      <ul className="flex gap-3 md:gap-8 text-xs md:text-sm text-gray-400 items-center">
+        <a
+          className="hover:text-primary cursor-pointer transition"
+          href="#about"
+        >
+          ABOUT
+        </a>
+        <a
+          href="#skills"
+          className="hover:text-primary cursor-pointer transition"
+        >
+          SKILLS
+        </a>
         <li className="hover:text-primary cursor-pointer transition">
           PROJECTS
         </li>

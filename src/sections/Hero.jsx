@@ -3,15 +3,15 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+    <section className="relative font-serif min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
       {/* ✅ Background (separate layer) */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(#444_1px,transparent_1px),linear-gradient(to_right,#444_1px,transparent_1px)] bg-[size:65px_65px] opacity-40"></div>
 
       {/* ✅ Content (NOT inside background) */}
-      <div className="relative z-10 max-w-5xl w-full px-6">
+      <div className="relative z-10 max-w-5xl w-full px-4 md:px-6">
         {/* Badge */}
         <p
-          className="text-green-400 border border-green-400 rounded-sm inline-flex items-center gap-2 px-4 py-1 text-sm mb-6
+          className="text-green-400 border border-green-400 rounded-sm inline-flex items-center gap-2 px-4 py-1 text-sm mb-2
                      shadow-[0_0_15px_rgba(74,222,128,0.6)] transition duration-300 animate-pulse"
         >
           <span
@@ -23,10 +23,10 @@ export default function Hero() {
 
         {/* Name */}
         <motion.h1
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="text-7xl font-bold leading-tight"
+          className="text-5xl md:text-7xl font-bold leading-tight"
         >
           <span className="text-3xl">Hello, I'm</span> <br />
           <span className="text-white">Kyaw Phyo</span>{" "}

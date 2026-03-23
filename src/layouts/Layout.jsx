@@ -1,7 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+
 import Navbar from "../components/Navbar";
 import { AnimatePresence, motion } from "framer-motion";
+import Hero from "../sections/Hero";
+import About from "../sections/About";
+import Skills from "../sections/Skills";
 
 export default function Layout() {
   return (
@@ -14,7 +17,9 @@ export default function Layout() {
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
         >
-          <Outlet />
+          <Hero />
+          <About />
+          <Skills />
         </motion.div>
       </AnimatePresence>
     </div>

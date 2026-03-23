@@ -60,4 +60,6 @@
   );
 }
 
-/*Background Grid Animation */
+html {
+  scroll-behavior: smooth;
+}

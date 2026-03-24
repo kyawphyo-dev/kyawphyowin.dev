@@ -29,7 +29,7 @@ export default function About() {
       className="min-h-screen flex items-start justify-center font-serif bg-black text-white px-6"
     >
       <div className="max-w-5xl w-full px-6">
-        <SectionTitle label="About Me" title="Who I Am" />
+        <SectionTitle id="02" label="About Me" title="Who I Am" />
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="flex flex-col gap-6 w-full ">

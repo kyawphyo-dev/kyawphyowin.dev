@@ -50,7 +50,7 @@ export default function Skills() {
       id="skills"
     >
       <div className="max-w-5xl mx-auto mt-10">
-        <SectionTitle label="Skills" title="Technologies I Work With" />
+        <SectionTitle label="Skills" id="03" title="Technologies I Work With" />
 
         <div className="grid md:grid-cols-3 gap-0 mt-15">
           {skills.map((category, index) => {

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
+import Projects from "../sections/ProjectSection";
 
 export default function Layout() {
   return (
@@ -20,6 +21,7 @@ export default function Layout() {
           <Hero />
           <About />
           <Skills />
+          <Projects />
         </motion.div>
       </AnimatePresence>
     </div>

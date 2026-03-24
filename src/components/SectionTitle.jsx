@@ -1,9 +1,9 @@
-export default function SectionTitle({ label, title }) {
+export default function SectionTitle({ label, title, id }) {
   return (
     <div className="text-start mb-16">
       {/* Label */}
       <p className="text-md text-primary uppercase tracking-widest mb-3">
-        {label}
+        {`${id} - ${label}`}
       </p>
 
       {/* Title */}

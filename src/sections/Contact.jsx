@@ -7,7 +7,7 @@ export default function Contact() {
     {
       info: "Kyaw Phyo Win",
       icon: Facebook,
-      link: "",
+      link: "https://www.facebook.com/share/1bh41B9Hio/",
     },
     {
       info: "kyawphyowin242965@gmail.com",
@@ -17,12 +17,12 @@ export default function Contact() {
     {
       info: "github.com/kyawphyo-dev",
       icon: Github,
-      link: "",
+      link: "https://github.com/kyawphyo-dev",
     },
     {
       info: "linkedin.com/in/kyawphyowin-dev",
       icon: Linkedin,
-      link: "",
+      link: "https://www.linkedin.com/in/kyawphyowin-dev/",
     },
     {
       info: "Phuket, Thailand - Open to relocation",

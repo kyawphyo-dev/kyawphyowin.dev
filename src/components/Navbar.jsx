@@ -24,6 +24,12 @@ export default function Navbar() {
       <ul className="flex gap-3 md:gap-8 text-xs md:text-sm text-gray-400 items-center">
         <a
           className="hover:text-primary cursor-pointer transition"
+          href="#hero"
+        >
+          HOME
+        </a>
+        <a
+          className="hover:text-primary cursor-pointer transition"
           href="#about"
         >
           ABOUT
@@ -34,15 +40,24 @@ export default function Navbar() {
         >
           SKILLS
         </a>
-        <li className="hover:text-primary cursor-pointer transition">
+        <a
+          className="hover:text-primary cursor-pointer transition"
+          href="#projects"
+        >
           PROJECTS
-        </li>
-        <li className="hover:text-primary cursor-pointer transition">
+        </a>
+        <a
+          className="hover:text-primary cursor-pointer transition"
+          href="#education"
+        >
           EDUCATION
-        </li>
-        <li className="hover:text-primary cursor-pointer transition">
+        </a>
+        <a
+          className="hover:text-primary cursor-pointer transition"
+          href="#contact"
+        >
           CONTACT
-        </li>
+        </a>
       </ul>
     </nav>
   );

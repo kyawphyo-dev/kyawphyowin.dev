@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import SectionTitle from "../components/SectionTitle";
@@ -26,7 +27,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-start justify-center font-serif bg-black text-white px-6"
+      className="min-h-screen flex items-start justify-center font-serif bg-black text-white px-6 py-30"
     >
       <div className="max-w-5xl w-full px-6">
         <SectionTitle id="02" label="About Me" title="Who I Am" />
@@ -35,23 +36,23 @@ export default function About() {
           <div className="flex flex-col gap-6 w-full ">
             <p className="text-text-muted leading-relaxed">
               I am a passionate{" "}
-              <span className="font-bold text-text">Full-Stack Developer</span>{" "}
-              with a strong foundation in modern web technologies. I have
-              experience working with HTML, CSS, JavaScript, React, and Laravel,
-              and I enjoy building responsive and user-friendly applications. I
+              <strong className="text-text">Full-Stack Developer</strong> with a
+              strong foundation in modern web technologies. I have experience
+              working with HTML, CSS, JavaScript, React, and Laravel, and I
+              enjoy building responsive and user-friendly applications. I
               recently completed my{" "}
-              <span className="text-text font-bold">
+              <strong className="text-text font-bold">
                 {" "}
                 Bachelor of Engineering in Information Technology
-              </span>{" "}
+              </strong>{" "}
               , where I developed projects focused on real-world problem
               solving.
               <br />
               <br />I am particularly interested in{" "}
-              <span className="text-text font-bold font-serif">
+              <strong className="text-text font-bold font-serif">
                 backend development, API integration, and scalable system
                 design.
-              </span>{" "}
+              </strong>{" "}
               I am continuously learning new technologies to improve my skills
               and stay updated with industry trends. My goal is to become a
               professional developer who creates efficient, impactful, and

@@ -3,7 +3,10 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function Hero() {
   return (
-    <section className="relative font-serif min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+    <section
+      id="hero"
+      className="relative font-serif min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
+    >
       {/* ✅ Background (separate layer) */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(#444_1px,transparent_1px),linear-gradient(to_right,#444_1px,transparent_1px)] bg-[size:65px_65px] opacity-40"></div>
 

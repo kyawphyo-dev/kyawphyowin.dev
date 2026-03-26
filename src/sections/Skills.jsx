@@ -49,7 +49,7 @@ export default function Skills() {
       className="min-h-screen bg-black text-white px-6 py-30 "
       id="skills"
     >
-      <div className="max-w-5xl mx-auto mt-10">
+      <div className="max-w-5xl w-full mx-auto mt-10">
         <SectionTitle label="Skills" id="03" title="Technologies I Work With" />
 
         <div className="grid md:grid-cols-3 gap-0 mt-15">

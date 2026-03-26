@@ -6,6 +6,9 @@ import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
 import Projects from "../sections/ProjectSection";
+import Education from "../sections/Education";
+import Contact from "../sections/Contact";
+import Footer from "../sections/Footer";
 
 export default function Layout() {
   return (
@@ -22,6 +25,9 @@ export default function Layout() {
           <About />
           <Skills />
           <Projects />
+          <Education />
+          <Contact />
+          <Footer />
         </motion.div>
       </AnimatePresence>
     </div>

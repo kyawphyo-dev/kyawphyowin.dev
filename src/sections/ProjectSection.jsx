@@ -47,8 +47,8 @@ export default function ProjectSection() {
   const featured = projects.find((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
   return (
-    <section className="bg-black text-white px-6 py-20">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-black text-white px-6 py-30" id="projects">
+      <div className="max-w-5xl w-full mx-auto">
         <SectionTitle id="04" label="Projects" title="My Work" />
 
         {featured && <FeaturedProject project={featured} />}

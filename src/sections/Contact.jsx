@@ -1,6 +1,8 @@
 import React from "react";
 import SectionTitle from "../components/sectionTitle";
 import { Mail, Github, Linkedin, MapPin, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
 
 export default function Contact() {
   let contactInfo = [
@@ -37,11 +39,20 @@ export default function Contact() {
     alert("On submit");
   };
   return (
-    <section
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
       id="contact"
-      className="min-h-screen bg-black text-white px-6 py-30 font-serif"
+      className="min-h-screen bg-black text-white px-6 py-16 md:py-30 font-serif"
     >
-      <div className="max-w-5xl w-full mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl w-full mx-auto"
+      >
         <SectionTitle id="06" label="Contact" title="Let's Build Together" />
         <div className=" grid md:grid-cols-2 gap-12">
           <div className="flex flex-col ">
@@ -53,63 +64,82 @@ export default function Contact() {
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon;
                 return (
-                  <a key={index} href={contact.link} target="_blank">
-                    <div className="border border-gray-800 px-5 py-3 me-10 mb-5 hover:bg-gray-800 transition flex items-center">
+                  <motion.a
+                    variants={fadeIn("up", index * 0.1)}
+                    key={index}
+                    href={contact.link}
+                    target="_blank"
+                  >
+                    <motion.div
+                      {...hoverLift}
+                      className="border border-gray-800 px-5 py-3 me-10 mb-5 hover:bg-gray-800 transition flex items-center"
+                    >
                       <Icon className=" text-text-muted" size={15} />
                       <p className="text-text-muted ms-5">{contact.info}</p>
-                    </div>
-                  </a>
+                    </motion.div>
+                  </motion.a>
                 );
               })}
             </div>
           </div>
           <form onSubmit={onSubmit}>
-            <div className="w-full flex flex-col">
+            <motion.div
+              variants={fadeIn("up", 0.2)}
+              className="w-full flex flex-col"
+            >
               <label htmlFor="name" className="text-text-muted mb-3">
                 Name
               </label>
-              <input
+              <motion.input
+                {...hoverLift}
                 type="text"
                 name="name"
+                id="name"
                 placeholder="Your Name"
                 className="border border-gray-800 px-5 py-3"
               />
-            </div>
-            <div className="w-full flex flex-col mt-5">
+            </motion.div>
+            <motion.div
+              variants={fadeIn("up", 0.3)}
+              className="w-full flex flex-col mt-5"
+            >
               <label htmlFor="email" className="text-text-muted mb-3">
                 Email
               </label>
-              <input
+              <motion.input
+                {...hoverLift}
                 type="email"
                 name="email"
-                id=""
+                id="email"
                 placeholder="your@gmail.com"
                 className="border border-gray-800 px-5 py-3"
               />
-            </div>
-            <div className="w-full mt-5">
+            </motion.div>
+            <motion.div variants={fadeIn("up", 0.4)} className="w-full mt-5">
               <label htmlFor="message" className="text-text-muted">
                 Message
               </label>
-              <textarea
+              <motion.textarea
+                {...hoverLift}
+                id="message"
                 name="message"
                 className="border border-gray-800 px-5 py-3 w-full mt-3"
                 placeholder="Tell me about your project or just say hi"
-                id=""
                 rows={3}
-              ></textarea>
-            </div>
-            <div className="w-full ">
-              <button
+              ></motion.textarea>
+            </motion.div>
+            <motion.div variants={fadeIn("up", 0.5)} className="w-full ">
+              <motion.button
+                {...hoverLift}
                 type="submit"
                 className="w-full text-start mt-5 bg-primary rounded-sm px-5 py-3 hover:bg-primary-hover"
               >
                 ↗ Send Message
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </form>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
 
 export default function Hero() {
   return (
-    <section
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
       id="hero"
       className="relative font-serif min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
     >
@@ -11,7 +16,12 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(#444_1px,transparent_1px),linear-gradient(to_right,#444_1px,transparent_1px)] bg-[size:65px_65px] opacity-40"></div>
 
       {/* ✅ Content (NOT inside background) */}
-      <div className="relative z-10 max-w-5xl w-full px-4 md:px-6">
+      <motion.div
+        variants={staggerContainer()}
+        initial="hidden"
+        whileInView="show"
+        className="relative z-10 max-w-5xl w-full px-4 md:px-6"
+      >
         {/* Badge */}
         <p
           className="text-green-400 border border-green-400 rounded-sm inline-flex items-center gap-2 px-4 py-1 text-sm mb-2
@@ -26,14 +36,14 @@ export default function Hero() {
 
         {/* Name */}
         <motion.h1
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, ease: "easeOut" }}
+          variants={fadeIn("up", 0.3)}
           className="text-5xl md:text-7xl font-bold leading-tight"
         >
           <span className="text-3xl">Hello, I'm</span> <br />
-          <span className="text-white">Kyaw Phyo</span>{" "}
-          <span className="text-primary">Win</span>
+          <motion.div {...hoverLift}>
+            <span className="text-white">Kyaw Phyo</span>{" "}
+            <span className="text-primary">Win</span>
+          </motion.div>
         </motion.h1>
 
         {/* Typing */}
@@ -57,20 +67,28 @@ export default function Hero() {
         </p>
 
         {/* Buttons */}
-        <div className="mt-8 flex gap-4">
-          <button className="bg-primary text-black px-6 py-3 font-semibold hover:scale-105 transition shadow-[0_0_20px_rgba(163,230,53,0.6)]">
+        <motion.div variants={fadeIn("up", 0.3)} className="mt-8 flex gap-4">
+          <motion.a
+            {...hoverLift}
+            href="#projects"
+            className="bg-primary md:text-md text-sm text-black px-4 py-2 md:px-6 md:py-3 font-semibold hover:scale-105 transition flex items-center shadow-[0_0_20px_rgba(163,230,53,0.6)]"
+          >
             View Projects ↓
-          </button>
-          <button className="border border-gray-600 px-6 py-3 hover:bg-white hover:text-black transition">
+          </motion.a>
+          <motion.a
+            {...hoverLift}
+            href="#contact"
+            className="border border-gray-600 px-6 py-3 hover:bg-white hover:text-black transition"
+          >
             Contact Me
-          </button>
-        </div>
+          </motion.a>
+        </motion.div>
 
         {/* Scroll */}
-      </div>
+      </motion.div>
       <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2 text-gray-500 text-sm animate-pulse">
-        ↓ Scroll
+        <a href="#about">↓ Scroll</a>
       </div>
-    </section>
+    </motion.section>
   );
 }

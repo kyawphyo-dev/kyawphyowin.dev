@@ -1,14 +1,8 @@
 import React from "react";
+import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
-import {
-  Monitor,
-  Server,
-  Database,
-  Cloud,
-  Wrench,
-  Layers,
-  Icon,
-} from "lucide-react";
+import { Monitor, Server, Database, Cloud, Wrench, Layers } from "lucide-react";
+import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
 
 export default function Skills() {
   const skills = [
@@ -45,18 +39,31 @@ export default function Skills() {
   ];
 
   return (
-    <section
-      className="min-h-screen bg-black text-white px-6 py-30 "
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="min-h-screen bg-black text-white px-6 py-16 md:py-30 "
       id="skills"
     >
-      <div className="max-w-5xl w-full mx-auto mt-10">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl w-full mx-auto mt-10"
+      >
         <SectionTitle label="Skills" id="03" title="Technologies I Work With" />
 
-        <div className="grid md:grid-cols-3 gap-0 mt-15">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          className="grid md:grid-cols-3 gap-0 mt-15"
+        >
           {skills.map((category, index) => {
             const Icon = category.icon;
             return (
-              <div
+              <motion.div
+                {...hoverLift}
                 key={index}
                 className="border border-gray-800 p-6 hover:bg-gray-900 transition"
               >
@@ -76,11 +83,11 @@ export default function Skills() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

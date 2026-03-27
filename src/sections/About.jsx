@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import SectionTitle from "../components/SectionTitle";
 import ProfilePic from "../assets/profile/ProfilePic.png";
+import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
 
 export default function About() {
   const stats = [
@@ -25,15 +26,27 @@ export default function About() {
     },
   ];
   return (
-    <section
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
       id="about"
-      className="min-h-screen flex items-start justify-center font-serif bg-black text-white px-6 py-30"
+      className="min-h-screen flex items-start justify-center font-serif bg-black text-white px-6 py-16 md:py-30"
     >
-      <div className="max-w-5xl w-full px-6">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl w-full px-6"
+      >
         <SectionTitle id="02" label="About Me" title="Who I Am" />
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="flex flex-col gap-6 w-full ">
+          <motion.div
+            variants={fadeIn("up", 0.2)}
+            className="flex flex-col gap-6 w-full "
+          >
             <p className="text-text-muted leading-relaxed">
               I am a passionate{" "}
               <strong className="text-text">Full-Stack Developer</strong> with a
@@ -60,13 +73,14 @@ export default function About() {
             </p>
 
             <div className="bg-black text-white py-2 px-6 w-full ">
-              <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 gap-0 border border-gray-800">
+              <motion.div
+                variants={fadeIn("up", 0.3)}
+                className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 gap-0 border border-gray-800"
+              >
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 2.5, delay: index * 0.1 }}
+                    {...hoverLift}
                     className="border border-gray-800 p-6 flex flex-col justify-center items-start hover:bg-gray-900 transition"
                   >
                     <h2 className="text-2xl font-bold text-primary">
@@ -77,11 +91,14 @@ export default function About() {
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
           <div>
-            <div className="relative w-full flex justify-center items-center py-11 bg-black">
+            <motion.div
+              variants={fadeIn("up", 0.4)}
+              className="relative w-full flex justify-center items-center py-2 md:py-11 bg-black"
+            >
               {/* Profile Picture */}
               <div className="relative">
                 <img
@@ -98,10 +115,10 @@ export default function About() {
                   <p className="text-sm text-black">Based in Phuket, TH</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

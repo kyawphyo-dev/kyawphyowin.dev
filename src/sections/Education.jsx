@@ -1,5 +1,7 @@
 import React from "react";
 import SectionTitle from "../components/SectionTitle";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
 
 export default function Education() {
   const educationData = [
@@ -29,14 +31,23 @@ export default function Education() {
     },
   ];
   return (
-    <section
-      className="min-h-screen bg-black text-white font-serif px-6 py-30"
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="min-h-screen bg-black text-white font-serif px-6 py-16 md:py-30"
       id="education"
     >
-      <div className="max-w-5xl w-full mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl w-full mx-auto"
+      >
         <SectionTitle
           label="Education"
-          id="04"
+          id="05"
           title="My Academic Background"
         />
 
@@ -47,7 +58,11 @@ export default function Education() {
 
           <div className="space-y-16">
             {educationData.map((item, index) => (
-              <div key={index} className="relative flex items-start gap-6">
+              <motion.div
+                variants={fadeIn("up", index * 0.1)}
+                key={index}
+                className="relative flex items-start gap-6"
+              >
                 {/* Dot (PERFECTLY CENTERED) */}
                 <div className="relative z-10 mt-3">
                   <div
@@ -73,11 +88,11 @@ export default function Education() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

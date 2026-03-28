@@ -1,9 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import SectionTitle from "../components/SectionTitle";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
+import useTheme from "../hooks/useTheme";
 
 export default function Education() {
+  let { isDark } = useTheme();
   const educationData = [
     {
       year: "2015 - 2024",
@@ -36,7 +38,7 @@ export default function Education() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="min-h-screen bg-black text-white font-serif px-6 py-16 md:py-30"
+      className="min-h-screen bg-bg text-text font-serif px-6 py-16 md:py-30"
       id="education"
     >
       <motion.div
@@ -54,7 +56,11 @@ export default function Education() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line (FIXED CENTER) */}
-          <div className="absolute left-[6px] top-0 h-full w-[2px] bg-gray-700"></div>
+          <div
+            className={`absolute left-[6px] top-0 h-full w-[2px] ${
+              isDark ? "bg-gray-700" : "bg-gray-500"
+            }`}
+          ></div>
 
           <div className="space-y-16">
             {educationData.map((item, index) => (
@@ -69,7 +75,7 @@ export default function Education() {
                     className={`w-4 h-4 rounded-full border-2  ${
                       item.active
                         ? "bg-primary border-primary"
-                        : "bg-black border-gray-500"
+                        : "bg-bg border-gray-500"
                     }`}
                   ></div>
                 </div>
@@ -82,9 +88,9 @@ export default function Education() {
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-gray-400">{item.subtitle}</p>
+                  <p className="text-sm text-text-muted">{item.subtitle}</p>
 
-                  <p className="text-sm text-gray-500 mt-2 max-w-xl leading-relaxed">
+                  <p className="text-sm text-text mt-2 max-w-xl leading-relaxed">
                     {item.description}
                   </p>
                 </div>

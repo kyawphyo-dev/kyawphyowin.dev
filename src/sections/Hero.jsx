@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
+import useTheme from "../hooks/useTheme";
 
 export default function Hero() {
+  let { isDark } = useTheme();
   return (
     <motion.section
       variants={fadeIn("up")}
@@ -10,10 +12,17 @@ export default function Hero() {
       whileInView="show"
       viewport={{ once: true }}
       id="hero"
-      className="relative font-serif min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
+      className="relative font-serif min-h-screen flex items-center justify-center bg-bg text-white overflow-hidden"
     >
       {/* ✅ Background (separate layer) */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(#444_1px,transparent_1px),linear-gradient(to_right,#444_1px,transparent_1px)] bg-[size:65px_65px] opacity-40"></div>
+
+      <div
+        className={`absolute inset-0 z-0 ${
+          isDark
+            ? "bg-[linear-gradient(#444_1px,transparent_1px),linear-gradient(to_right,#444_1px,transparent_1px)] bg-[size:65px_65px] opacity-40"
+            : "bg-[linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(to_right,#e5e7eb_1px,transparent_1px)] bg-[size:65px_65px] opacity-70"
+        }`}
+      ></div>
 
       {/* ✅ Content (NOT inside background) */}
       <motion.div
@@ -24,11 +33,11 @@ export default function Hero() {
       >
         {/* Badge */}
         <p
-          className="text-green-400 border border-green-400 rounded-sm inline-flex items-center gap-2 px-4 py-1 text-sm mb-2
+          className="text-green-400 border border-green-700 rounded-sm inline-flex items-center gap-2 px-4 py-1 text-sm mb-2
                      shadow-[0_0_15px_rgba(74,222,128,0.6)] transition duration-300 animate-pulse"
         >
           <span
-            className="w-2 h-2 bg-green-400 rounded-full 
+            className="w-2 h-2 bg-green-700 rounded-full 
                     "
           ></span>
           Available for new projects
@@ -39,9 +48,9 @@ export default function Hero() {
           variants={fadeIn("up", 0.3)}
           className="text-5xl md:text-7xl font-bold leading-tight"
         >
-          <span className="text-3xl">Hello, I'm</span> <br />
+          <span className="text-3xl text-text">Hello, I'm</span> <br />
           <motion.div {...hoverLift}>
-            <span className="text-white">Kyaw Phyo</span>{" "}
+            <span className="text-text">Kyaw Phyo</span>{" "}
             <span className="text-primary">Win</span>
           </motion.div>
         </motion.h1>
@@ -71,14 +80,20 @@ export default function Hero() {
           <motion.a
             {...hoverLift}
             href="#projects"
-            className="bg-primary md:text-md text-sm text-black px-4 py-2 md:px-6 md:py-3 font-semibold hover:scale-105 transition flex items-center shadow-[0_0_20px_rgba(163,230,53,0.6)]"
+            className={`bg-primary rounded-sm md:text-lg text-sm  px-3 py-1 md:px-6 md:py-3 font-semibold hover:scale-105 transition flex items-center shadow-[0_0_20px_rgba(163,230,53,0.6)] ${
+              isDark ? "text-black" : "text-white"
+            }`}
           >
             View Projects ↓
           </motion.a>
           <motion.a
             {...hoverLift}
             href="#contact"
-            className="border border-gray-600 px-6 py-3 hover:bg-white hover:text-black transition"
+            className={`border border-border text-text text-sm md:text-lg px-5 py-3 rounded-sm  transition ${
+              isDark
+                ? "hover:bg-gray-200 hover:text-black"
+                : "hover:bg-gray-500 hover:text-white"
+            }`}
           >
             Contact Me
           </motion.a>

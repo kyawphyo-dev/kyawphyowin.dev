@@ -34,8 +34,8 @@ export default function Footer() {
     },
   ];
   return (
-    <section className=" bg-black font-serif flex justify-center items-center">
-      <div className="max-w-5xl w-full md:flex justify-between text-md my-3 mb-10 md:ms-0 ms-4 py-3  text-gray-400">
+    <section className=" bg-bg font-serif flex justify-center items-center">
+      <div className="max-w-5xl w-full md:flex justify-between text-md my-3 mb-10 md:ms-0 ms-4 py-3  text-text-muted">
         <div className="mb-2 px-2">
           <p>
             Designed & Built by{" "}
@@ -63,7 +63,7 @@ export default function Footer() {
                 target="_blank"
                 className="hover:text-primary transition px-2"
               >
-                <Icon size={20} />
+                <Icon size={22} />
               </motion.a>
             );
           })}

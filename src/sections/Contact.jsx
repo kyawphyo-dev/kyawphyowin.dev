@@ -3,8 +3,10 @@ import SectionTitle from "../components/sectionTitle";
 import { Mail, Github, Linkedin, MapPin, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
+import useTheme from "../hooks/useTheme";
 
 export default function Contact() {
+  let { isDark } = useTheme();
   let contactInfo = [
     {
       info: "Kyaw Phyo Win",
@@ -45,7 +47,7 @@ export default function Contact() {
       whileInView="show"
       viewport={{ once: true }}
       id="contact"
-      className="min-h-screen bg-black text-white px-6 py-16 md:py-30 font-serif"
+      className="min-h-screen bg-bg text-text px-6 py-16 md:py-30 font-serif"
     >
       <motion.div
         variants={staggerContainer}
@@ -72,7 +74,7 @@ export default function Contact() {
                   >
                     <motion.div
                       {...hoverLift}
-                      className="border border-gray-800 px-5 py-3 me-10 mb-5 hover:bg-gray-800 transition flex items-center"
+                      className="border border-border px-5 py-3 me-10 mb-5 hover:bg-bg-hover transition flex items-center"
                     >
                       <Icon className=" text-text-muted" size={15} />
                       <p className="text-text-muted ms-5">{contact.info}</p>
@@ -96,7 +98,7 @@ export default function Contact() {
                 name="name"
                 id="name"
                 placeholder="Your Name"
-                className="border border-gray-800 px-5 py-3"
+                className="border border-border px-5 py-3"
               />
             </motion.div>
             <motion.div
@@ -112,7 +114,7 @@ export default function Contact() {
                 name="email"
                 id="email"
                 placeholder="your@gmail.com"
-                className="border border-gray-800 px-5 py-3"
+                className="border border-border px-5 py-3"
               />
             </motion.div>
             <motion.div variants={fadeIn("up", 0.4)} className="w-full mt-5">
@@ -123,7 +125,7 @@ export default function Contact() {
                 {...hoverLift}
                 id="message"
                 name="message"
-                className="border border-gray-800 px-5 py-3 w-full mt-3"
+                className="border border-border px-5 py-3 w-full mt-3"
                 placeholder="Tell me about your project or just say hi"
                 rows={3}
               ></motion.textarea>
@@ -132,7 +134,9 @@ export default function Contact() {
               <motion.button
                 {...hoverLift}
                 type="submit"
-                className="w-full text-start mt-5 bg-primary rounded-sm px-5 py-3 hover:bg-primary-hover"
+                className={`w-full  text-start mt-5 bg-primary rounded-sm px-5 py-3 hover:bg-primary-hover ${
+                  isDark ? "text-black" : "text-white"
+                }`}
               >
                 ↗ Send Message
               </motion.button>

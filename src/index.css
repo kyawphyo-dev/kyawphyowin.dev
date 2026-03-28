@@ -3,22 +3,23 @@
 /* Light Mode */
 @theme {
   /* Backgrounds */
-  --color-bg: #080808; /* Dark charcoal  */
-  --color-card: oklch(0.18 0.02 250); /* white */
+  --color-bg: #f8fafc; /* soft White */
+  --color-bg-hover: #d1d5db;
+  --color-card: oklch(100% 0 0); /* white */
 
   /* Text */
-  --color-text: oklch(0.92 0.01 260); /* slate-900 */
-  --color-text-muted: oklch(0.65 0.02 260); /* slate-600 */
+  --color-text: #0f172a; /* slate-900 */
+  --color-text-muted: #475569; /* slate-600 */
 
   /* Borders */
-  --color-border: oklch(0.30 0.02 250); /* slate-200 */
+  --color-border: oklch(85% 0.02 260);
 
   /* Primary theme */
-  --color-primary: #2793F4; /* blue */
-  --color-primary-hover: #074B87;
+  --color-primary: oklch(55% 0.22 260); /* blue */
+  --color-primary-hover: oklch(40% 0.22 260);
 
   /* Secondary theme */
-  --color-secondary:oklch(0.25 0.02 250); /* orange */
+  --color-secondary: oklch(70% 0.15 35); /* orange */
 
   /* Status colors */
   --color-success: oklch(70% 0.18 145); /* green */
@@ -37,14 +38,15 @@
 
 .dark {
   --color-bg: #080808; /* slate-800 */
+  --color-bg-hover: #111827;
   --color-card: oklch(33% 0.02 260); /* slate-800 */
 
   --color-text: oklch(98% 0 0); /* slate-50 */
   --color-text-muted: oklch(80% 0.01 250); /* slate-300 */
 
-  --color-border: indigo /* indigo-300/70 */
+  --color-border: #1f2937; /* indigo-300/70 */
 
-  --color-primary: oklch(60% 0.18 260); /* blue-400 */
+  --color-primary: oklch(50% 0.18 260); /* blue-400 */
   --color-primary-hover: oklch(40% 0.18 260);
 
   --color-secondary: oklch(75% 0.16 40);

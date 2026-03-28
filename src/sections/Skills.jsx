@@ -44,7 +44,7 @@ export default function Skills() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="min-h-screen bg-black text-white px-6 py-16 md:py-30 "
+      className="min-h-screen bg-bg text-text px-6 py-16 md:py-30 "
       id="skills"
     >
       <motion.div
@@ -65,7 +65,7 @@ export default function Skills() {
               <motion.div
                 {...hoverLift}
                 key={index}
-                className="border border-gray-800 p-6 hover:bg-gray-900 transition"
+                className="border border-border p-6 hover:bg-bg-hover transition"
               >
                 <Icon className="text-gray-400 mb-4" size={22} />
 
@@ -77,7 +77,7 @@ export default function Skills() {
                   {category.items.map((item, i) => (
                     <span
                       key={i}
-                      className="border border-gray-700 px-3 py-1 text-sm text-gray-300"
+                      className="border border-border px-3 py-1 text-sm text-text-muted"
                     >
                       {item}
                     </span>

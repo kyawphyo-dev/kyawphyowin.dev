@@ -55,7 +55,7 @@ export default function ProjectSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="bg-black text-white px-6 py-16 md:py-30 min-h-screen font-serif"
+      className="bg-bg text-text px-6 py-16 md:py-30 min-h-screen font-serif"
       id="projects"
     >
       <motion.div

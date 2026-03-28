@@ -74,6 +74,7 @@ export default function Navbar({ setActiveSection, activeSection }) {
               {item.toUpperCase()}
             </motion.button>
           ))}
+          {/* Light and Dark Toggle */}
           <button
             onClick={() => changeTheme(isDark ? "light" : "dark")}
             className={`relative flex items-center w-14 h-8  rounded-full p-1 transition-colors duration-300 ${
@@ -97,7 +98,7 @@ export default function Navbar({ setActiveSection, activeSection }) {
         {/* 🔹 Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden text-white text-2xl"
+          className="md:hidden text-text text-2xl"
         >
           ☰
         </button>
@@ -111,15 +112,37 @@ export default function Navbar({ setActiveSection, activeSection }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 w-full h-screen bg-black z-50 flex flex-col items-center justify-center gap-8"
+            className="fixed top-0 right-0 w-full h-screen bg-bg z-50 flex flex-col items-center justify-center gap-8"
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-3xl text-white"
-            >
-              ✕
-            </button>
+            <div className="flex justify-between">
+              {/* Close Button */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-6 right-6 text-3xl text-text"
+              >
+                ✕
+              </button>
+
+              {/* Light and Dark Toggle */}
+              <button
+                onClick={() => changeTheme(isDark ? "light" : "dark")}
+                className={`relative flex items-center w-14 h-8  rounded-full p-1 transition-colors duration-300 ${
+                  isDark ? "bg-gray-200" : "bg-gray-700"
+                }`}
+              >
+                {/* Sliding circle */}
+                <span
+                  className={`absolute w-6 h-6 bg-white  rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center
+        ${isDark ? "translate-x-6 bg-dark" : "translate-x-0 bg-white"}`}
+                >
+                  {isDark ? (
+                    <Sun size={14} className="text-gray-800" />
+                  ) : (
+                    <Moon size={14} className="text-black" />
+                  )}
+                </span>
+              </button>
+            </div>
 
             {/* Links */}
             {navItems.map((item) => (

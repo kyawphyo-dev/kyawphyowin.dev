@@ -1,14 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "../layouts/Layout";
-import Hero from "../sections/Hero";
-import About from "../sections/About";
-export default function index() {
-  const router = createBrowserRouter([
+
+export default function Index() {
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+      },
+    ],
     {
-      path: "/",
-      element: <Layout />,
-    },
-  ]);
+      basename: "/kyawphyowin.dev/", // ✅ ADD THIS
+    }
+  );
 
   return <RouterProvider router={router} />;
 }

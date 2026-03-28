@@ -6,8 +6,6 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <ThemeContextProvider>
-    <BrowserRouter basename="/kyawphyowin.dev/">
-      <Router />
-    </BrowserRouter>
+    <Router />
   </ThemeContextProvider>
 );

@@ -9,26 +9,38 @@ export default function Education() {
   const educationData = [
     {
       year: "2015 - 2024",
-      title: "BE.IT",
+      title: "Bachelor of Engineering in Information Technology",
       subtitle: "Technoloical University (Mawlamyine), Myanmar",
+      completed: "Graduated: February 2025",
       description:
-        "Focused on software engineering, data structures, algorithms, and distributed systems.",
+        "Studied core concepts of Information Technology including software development, database systems, and cloud computing. Completed a final thesis on building a scalable Virtual Data Center using AWS and Datadog, focusing on system design, monitoring, and performance optimization.",
       active: false,
     },
     {
-      year: "2022",
-      title: "Full-Stack Web Development",
+      year: "2021",
+      title: "Diploma in Computer Network",
+      subtitle: "Institute of Commercial Management,Myanmar",
+      completed: "October 2025",
+      description:
+        "Learned networking fundamentals, protocols, and basic system configuration.",
+      active: false,
+    },
+    {
+      year: "2025",
+      title: "Laravel Online Course",
       subtitle: "Self-directed / Online Courses",
+      completed: "February 2026",
       description:
-        "Deep dives into React ecosystem, Node.js, and cloud infrastructure.",
+        "Developed backend applications using Laravel, focusing on APIs, authentication, and database management.",
       active: false,
     },
     {
-      year: "2023",
-      title: "AWS Certified Developer – Associate",
-      subtitle: "Amazon Web Services",
+      year: "2026",
+      title: "React-Firebase Online Course",
+      subtitle: "Self-directed / Online Courses",
+      completed: "February 2026",
       description:
-        "Certified in developing and deploying cloud-based applications.",
+        "Built full-stack applications using React and Firebase, including authentication and real-time database integration.",
       active: true,
     },
   ];
@@ -88,7 +100,8 @@ export default function Education() {
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-text-muted">{item.subtitle}</p>
+                  <h4 className=" text-primary">{item.subtitle}</h4>
+                  <p className="text-sm text-text-muted">{item.completed}</p>
 
                   <p className="text-sm text-text mt-2 max-w-xl leading-relaxed">
                     {item.description}

@@ -1,7 +1,7 @@
-import React, { use } from "react";
+import React from "react";
 import SectionTitle from "../components/SectionTitle";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
+import { fadeIn, staggerContainer } from "../Utlils/animations";
 import useTheme from "../hooks/useTheme";
 
 export default function Education() {

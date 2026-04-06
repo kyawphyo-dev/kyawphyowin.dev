@@ -3,14 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Home, Sun, Moon } from "lucide-react";
 import { hoverLift } from "../Utlils/animations";
 import useTheme from "../hooks/useTheme";
+import { Link } from "react-router-dom";
 
-export default function Navbar({ setActiveSection, activeSection }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false); // 🔥 NEW
   const { isDark, changeTheme } = useTheme();
 
+  //Nav hide and show
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -52,7 +54,7 @@ export default function Navbar({ setActiveSection, activeSection }) {
         ${scrolled ? "border-b border-[#292929] bg-bg/80 backdrop-blur-lg" : ""}
         ${showNav ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <h1 className="text-white text-2xl md:text-3xl font-bold cursor-pointer items-center my-2"></h1>
+        <h1 className="items-center my-2 text-2xl font-bold text-white cursor-pointer md:text-3xl"></h1>
 
         {/* 🔹 Desktop Menu */}
         <div
@@ -61,18 +63,9 @@ export default function Navbar({ setActiveSection, activeSection }) {
           }`}
         >
           {navItems.map((item) => (
-            <motion.button
-              key={item}
-              {...hoverLift}
-              onClick={() => setActiveSection(item)}
-              className={`hover:text-primary transition ${
-                activeSection === item
-                  ? "text-primary border-b-2 border-primary"
-                  : ""
-              }`}
-            >
+            <Link to={`${item}`} key={item} className={``}>
               {item.toUpperCase()}
-            </motion.button>
+            </Link>
           ))}
           {/* Light and Dark Toggle */}
           <button
@@ -98,7 +91,7 @@ export default function Navbar({ setActiveSection, activeSection }) {
         {/* 🔹 Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(true)}
-          className="md:hidden text-text text-2xl"
+          className="text-2xl md:hidden text-text"
         >
           ☰
         </button>
@@ -112,13 +105,13 @@ export default function Navbar({ setActiveSection, activeSection }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 w-full h-screen bg-bg z-50 flex flex-col items-center justify-center gap-8"
+            className="fixed top-0 right-0 z-50 flex flex-col items-center justify-center w-full h-screen gap-8 bg-bg"
           >
             <div className="flex justify-between">
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-6 right-6 text-3xl text-text"
+                className="absolute text-3xl top-6 right-6 text-text"
               >
                 ✕
               </button>

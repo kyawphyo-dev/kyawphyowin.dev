@@ -3,6 +3,7 @@ import SectionTitle from "./SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
+import { motion } from "framer-motion";
 import admindash1 from "../assets/PizzaOrderSyatem/Admin/a_dashboard1.png";
 import admindash2 from "../assets/PizzaOrderSyatem/Admin/a_dashboard2.png";
 import adminlogin from "../assets/PizzaOrderSyatem/Admin/a_login.png";
@@ -32,6 +33,13 @@ import UserContact from "../assets/PizzaOrderSyatem/User/013_Ucontact.png";
 
 import { Github, TrendingUp } from "lucide-react";
 import { title } from "framer-motion/client";
+
+import {
+  hoverLift,
+  pageTransition,
+  fadeIn,
+  staggerContainer,
+} from "../Utlils/animations";
 
 export default function ProjectDetails() {
   const adminImages = [
@@ -194,22 +202,43 @@ export default function ProjectDetails() {
     "MySQL",
   ];
   return (
-    <section className="min-h-screen px-6 py-16 font-serif bg-bg md:py-30">
+    <motion.section
+      variants={fadeIn("up")}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="min-h-screen px-6 py-16 font-serif bg-bg md:py-30"
+    >
       {/* Admin */}
-      <div className="max-w-5xl mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl mx-auto"
+      >
         {/* Back Button */}
-        <button className="mb-6 text-sm text-text-muted opacity-70 hover:opacity-100">
+        <motion.Link
+          variants={fadeIn("up", 0.2)}
+          to="/"
+          className="mb-6 text-sm text-text-muted opacity-70 hover:opacity-100"
+        >
           ← Back to Projects
-        </button>
+        </motion.Link>
 
         {/* Title */}
         <SectionTitle id="" label="Pizza Order System" />
 
-        <h2 className="mb-5 text-2xl text-center text-text md:text-3xl">
+        <motion.h2
+          variants={fadeIn("up", 0.2)}
+          className="mb-5 text-2xl text-center text-text md:text-3xl"
+        >
           Admin Dashboard
-        </h2>
+        </motion.h2>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          className="grid gap-10 md:grid-cols-2"
+        >
           {/* LEFT: Images */}
           <div>
             <div className="w-full h-[200px] md:h-[300px] overflow-hidden bg-gray-900 rounded-xl flex items-center justify-center">
@@ -282,8 +311,11 @@ export default function ProjectDetails() {
               </a>
             </div>
           </div>
-        </div>
-        <div className="w-full font-serif text-text mt-15">
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          className="w-full font-serif text-text mt-15"
+        >
           <h4 className="text-xl text-primary">Details</h4>
           <p className="mt-3 text-text-muted">
             A full-stack web application for pizza ordering with role-based
@@ -300,17 +332,25 @@ export default function ProjectDetails() {
               <li className="mb-3">{highlight}</li>
             ))}
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {/* User */}
-      <div className="max-w-5xl mx-auto mt-30">
-        <h2 className="mb-5 text-2xl text-center text-text md:text-3xl">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        className="max-w-5xl mx-auto mt-30"
+      >
+        <motion.h2
+          variants={fadeIn("up", 0.2)}
+          className="mb-5 text-2xl text-center text-text md:text-3xl"
+        >
           User Site
-        </h2>
+        </motion.h2>
 
         <div className="grid gap-10 md:grid-cols-2">
           {/* LEFT: Images */}
-          <div>
+          <motion.div variants={fadeIn("up", 0.3)}>
             <div className="w-full h-[200px] md:h-[300px] overflow-hidden bg-gray-900 rounded-xl flex items-center justify-center">
               <Swiper
                 className="h-full"
@@ -336,10 +376,10 @@ export default function ProjectDetails() {
                 ))}
               </Swiper>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: Info */}
-          <div className="space-y-6">
+          <motion.div variants={fadeIn("up", 0.4)} className="space-y-6">
             <div>
               <h3 className="font-semibold text-text">Tech Stack</h3>
               <div className="flex flex-wrap gap-2 mt-4">
@@ -377,9 +417,12 @@ export default function ProjectDetails() {
                 GitHub
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="w-full font-serif text-text mt-15">
+        <motion.div
+          variants={fadeIn("up", 0.5)}
+          className="w-full font-serif text-text mt-15"
+        >
           <h4 className="text-xl text-primary">Details</h4>
           <p className="mt-3 text-text-muted">
             The user-facing site allows customers to browse the menu, customize
@@ -397,8 +440,8 @@ export default function ProjectDetails() {
               <li className="mb-3">{highlight}</li>
             ))}
           </ul>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

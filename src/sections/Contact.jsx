@@ -47,16 +47,16 @@ export default function Contact() {
       whileInView="show"
       viewport={{ once: true }}
       id="contact"
-      className="min-h-screen bg-bg text-text px-6 py-16 md:py-30 font-serif"
+      className="min-h-screen px-6 py-16 font-serif bg-bg text-text md:py-30"
     >
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        className="max-w-5xl w-full mx-auto"
+        className="w-full max-w-5xl mx-auto"
       >
         <SectionTitle id="06" label="Contact" title="Let's Build Together" />
-        <div className=" grid md:grid-cols-2 gap-12">
+        <div className="grid gap-12  md:grid-cols-2">
           <div className="flex flex-col ">
             <p className="text-text-muted">
               Have a project in mind or want to discuss opportunities? I’m
@@ -74,7 +74,7 @@ export default function Contact() {
                   >
                     <motion.div
                       {...hoverLift}
-                      className="border border-border px-5 py-3 me-10 mb-5 hover:bg-bg-hover transition flex items-center"
+                      className="flex items-center px-5 py-3 mb-5 transition border border-border me-10 hover:bg-bg-hover"
                     >
                       <Icon className=" text-text-muted" size={15} />
                       <p className="text-text-muted ms-5">{contact.info}</p>
@@ -84,12 +84,12 @@ export default function Contact() {
               })}
             </div>
           </div>
-          <form onSubmit={onSubmit}>
+          {/* <form onSubmit={onSubmit}>
             <motion.div
               variants={fadeIn("up", 0.2)}
-              className="w-full flex flex-col"
+              className="flex flex-col w-full"
             >
-              <label htmlFor="name" className="text-text-muted mb-3">
+              <label htmlFor="name" className="mb-3 text-text-muted">
                 Name
               </label>
               <motion.input
@@ -98,14 +98,14 @@ export default function Contact() {
                 name="name"
                 id="name"
                 placeholder="Your Name"
-                className="border border-border px-5 py-3"
+                className="px-5 py-3 border border-border"
               />
             </motion.div>
             <motion.div
               variants={fadeIn("up", 0.3)}
-              className="w-full flex flex-col mt-5"
+              className="flex flex-col w-full mt-5"
             >
-              <label htmlFor="email" className="text-text-muted mb-3">
+              <label htmlFor="email" className="mb-3 text-text-muted">
                 Email
               </label>
               <motion.input
@@ -114,7 +114,7 @@ export default function Contact() {
                 name="email"
                 id="email"
                 placeholder="your@gmail.com"
-                className="border border-border px-5 py-3"
+                className="px-5 py-3 border border-border"
               />
             </motion.div>
             <motion.div variants={fadeIn("up", 0.4)} className="w-full mt-5">
@@ -125,7 +125,7 @@ export default function Contact() {
                 {...hoverLift}
                 id="message"
                 name="message"
-                className="border border-border px-5 py-3 w-full mt-3"
+                className="w-full px-5 py-3 mt-3 border border-border"
                 placeholder="Tell me about your project or just say hi"
                 rows={3}
               ></motion.textarea>
@@ -141,7 +141,7 @@ export default function Contact() {
                 ↗ Send Message
               </motion.button>
             </motion.div>
-          </form>
+          </form> */}
         </div>
       </motion.div>
     </motion.section>

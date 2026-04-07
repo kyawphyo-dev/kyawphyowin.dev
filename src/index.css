@@ -65,3 +65,26 @@
 html {
   scroll-behavior: smooth;
 }
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  width: 100% !important;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* index.css or global CSS */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

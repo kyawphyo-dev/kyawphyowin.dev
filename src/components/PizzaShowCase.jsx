@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import SectionTitle from "./SectionTitle";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import admindash1 from "../assets/PizzaOrderSyatem/Admin/a_dashboard1.png";
 import admindash2 from "../assets/PizzaOrderSyatem/Admin/a_dashboard2.png";
@@ -32,8 +30,6 @@ import UserProfile from "../assets/PizzaOrderSyatem/User/012_Uprofile.png";
 import UserContact from "../assets/PizzaOrderSyatem/User/013_Ucontact.png";
 
 import { Github, TrendingUp } from "lucide-react";
-import { title } from "framer-motion/client";
-
 import {
   hoverLift,
   pageTransition,
@@ -43,11 +39,7 @@ import {
 
 export default function ProjectDetails() {
   const adminImages = [
-    {
-      src: adminlogin,
-      title: "Admin Login",
-      alt: "Admin login page",
-    },
+    { src: adminlogin, title: "Admin Login", alt: "Admin login page" },
     {
       src: admindash1,
       title: "Dashboard Overview",
@@ -58,52 +50,25 @@ export default function ProjectDetails() {
       title: "Analytics Dashboard",
       alt: "Admin analytics and charts",
     },
-    {
-      src: adminMenu,
-      title: "Add Menu",
-      alt: "Admin add menu form",
-    },
-    {
-      src: adminpizza,
-      title: "Pizza Management",
-      alt: "Manage pizza items",
-    },
-    {
-      src: admincombo,
-      title: "Combo Deals",
-      alt: "Manage combo deals",
-    },
+    { src: adminMenu, title: "Add Menu", alt: "Admin add menu form" },
+    { src: adminpizza, title: "Pizza Management", alt: "Manage pizza items" },
+    { src: admincombo, title: "Combo Deals", alt: "Manage combo deals" },
     {
       src: admincategory,
       title: "Category Management",
       alt: "Manage categories",
     },
-    {
-      src: adminorder,
-      title: "Order List",
-      alt: "View and manage orders",
-    },
-    {
-      src: adminbooking,
-      title: "Booking Management",
-      alt: "Manage bookings",
-    },
-    {
-      src: adminlist,
-      title: "Admin Management",
-      alt: "Manage admin users",
-    },
-    {
-      src: adminprofile,
-      title: "Profile Settings",
-      alt: "Admin profile page",
-    },
+    { src: adminorder, title: "Order List", alt: "View and manage orders" },
+    { src: adminbooking, title: "Booking Management", alt: "Manage bookings" },
+    { src: adminlist, title: "Admin Management", alt: "Manage admin users" },
+    { src: adminprofile, title: "Profile Settings", alt: "Admin profile page" },
     {
       src: adminpassword,
       title: "Change Password",
       alt: "Password update page",
     },
   ];
+
   const adminHighlights = [
     "🔐 Secure authentication (register / login)",
     "📈 Earnings reports (daily, weekly, monthly, overall)",
@@ -116,36 +81,16 @@ export default function ProjectDetails() {
   ];
 
   const userImages = [
-    {
-      src: UserLogin,
-      title: "User Login",
-      alt: "User login page",
-    },
-    {
-      src: UserHome,
-      title: "Homepage",
-      alt: "User homepage",
-    },
-    {
-      src: UserMenu,
-      title: "Menu Page",
-      alt: "Browse pizza menu",
-    },
+    { src: UserLogin, title: "User Login", alt: "User login page" },
+    { src: UserHome, title: "Homepage", alt: "User homepage" },
+    { src: UserMenu, title: "Menu Page", alt: "Browse pizza menu" },
     {
       src: UserDesserts,
       title: "Desserts Category",
       alt: "View desserts menu",
     },
-    {
-      src: UserSoftdrinks,
-      title: "Soft Drinks",
-      alt: "View drinks menu",
-    },
-    {
-      src: UserAddToCart,
-      title: "Add to Cart",
-      alt: "Adding item to cart",
-    },
+    { src: UserSoftdrinks, title: "Soft Drinks", alt: "View drinks menu" },
+    { src: UserAddToCart, title: "Add to Cart", alt: "Adding item to cart" },
     {
       src: UserToppings,
       title: "Customize Toppings",
@@ -156,16 +101,8 @@ export default function ProjectDetails() {
       title: "Cart Details",
       alt: "View cart and selected items",
     },
-    {
-      src: UserOrder,
-      title: "Order History",
-      alt: "View past orders",
-    },
-    {
-      src: UserBooking,
-      title: "Booking Page",
-      alt: "Create booking",
-    },
+    { src: UserOrder, title: "Order History", alt: "View past orders" },
+    { src: UserBooking, title: "Booking Page", alt: "Create booking" },
     {
       src: UserBookingHistory,
       title: "Booking History",
@@ -182,6 +119,7 @@ export default function ProjectDetails() {
       alt: "Contact information page",
     },
   ];
+
   const userHighlight = [
     "🔐 Secure authentication (register / login)",
     "🍕 Browse menu by categories (Pizza, Drinks, Desserts)",
@@ -192,15 +130,64 @@ export default function ProjectDetails() {
     "📜 View order history",
   ];
 
-  let TechStack = [
+  const TechStack = [
     "HTML",
     "CSS",
     "Bootstrap",
-    " PHP",
+    "PHP",
     "Laravel",
     "AJAX",
     "MySQL",
   ];
+
+  // Admin scroll
+  const adminScrollRef = useRef(null);
+  const [adminActiveIndex, setAdminActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAdminActiveIndex((prev) => {
+        const next = (prev + 1) % adminImages.length;
+
+        adminScrollRef.current?.scrollTo({
+          left: next * adminScrollRef.current.offsetWidth,
+          behavior: "smooth",
+        });
+
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleAdminScroll = () => {
+    const el = adminScrollRef.current;
+    if (!el) return;
+    setAdminActiveIndex(Math.round(el.scrollLeft / el.offsetWidth));
+  };
+
+  // User scroll
+  const userScrollRef = useRef(null);
+  const [userActiveIndex, setUserActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const el = userScrollRef.current;
+      if (!el) return;
+      const nextIndex = (userActiveIndex + 1) % userImages.length;
+      el.scrollTo({ left: nextIndex * el.offsetWidth, behavior: "smooth" });
+      setUserActiveIndex(nextIndex);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [userActiveIndex]);
+
+  const handleUserScroll = () => {
+    const el = userScrollRef.current;
+    if (!el) return;
+    setUserActiveIndex(Math.round(el.scrollLeft / el.offsetWidth));
+  };
+
   return (
     <motion.section
       variants={fadeIn("up")}
@@ -209,25 +196,24 @@ export default function ProjectDetails() {
       viewport={{ once: true }}
       className="min-h-screen px-6 py-16 font-serif bg-bg md:py-30"
     >
-      {/* Admin */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        className="max-w-5xl mx-auto"
+        className="w-full max-w-5xl mx-auto"
       >
         {/* Back Button */}
-        <motion.Link
-          variants={fadeIn("up", 0.2)}
+        <Link
           to="/"
           className="mb-6 text-sm text-text-muted opacity-70 hover:opacity-100"
         >
           ← Back to Projects
-        </motion.Link>
+        </Link>
 
         {/* Title */}
         <SectionTitle id="" label="Pizza Order System" />
 
+        {/* ─── ADMIN SECTION ─── */}
         <motion.h2
           variants={fadeIn("up", 0.2)}
           className="mb-5 text-2xl text-center text-text md:text-3xl"
@@ -237,41 +223,57 @@ export default function ProjectDetails() {
 
         <motion.div
           variants={fadeIn("up", 0.3)}
-          className="grid gap-10 md:grid-cols-2"
+          className="grid w-full min-w-0 gap-6 md:gap-10 md:grid-cols-2"
         >
-          {/* LEFT: Images */}
-          <div>
-            <div className="w-full h-[200px] md:h-[300px] overflow-hidden bg-gray-900 rounded-xl flex items-center justify-center">
-              <Swiper
-                className="h-full"
-                modules={[Autoplay, Navigation]}
-                navigation
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
+          {/* LEFT: Admin Images */}
+          <motion.div variants={fadeIn("up", 0.4)} className="min-w-0">
+            <div className="relative w-full h-[250px] md:h-[340px] overflow-hidden bg-gray-800 rounded-xl">
+              <div
+                ref={adminScrollRef}
+                onScroll={handleAdminScroll}
+                className="flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
               >
                 {adminImages.map((admin, index) => (
-                  <SwiperSlide
-                    className="flex items-center justify-center h-full"
+                  <div
                     key={index}
+                    className="flex flex-col items-center justify-center h-full min-w-full gap-2 p-3 snap-center"
                   >
                     <img
                       src={admin.src}
                       alt={admin.alt}
-                      className="object-contain w-full h-full"
+                      className="object-contain w-full max-h-[180px] md:max-h-[270px]"
                     />
-                    <p className="mt-3 text-sm text-center text-gray-800">
+                    <p className="mt-2 text-xs text-center text-white md:text-sm">
                       {admin.title}
                     </p>
-                  </SwiperSlide>
+                  </div>
                 ))}
-              </Swiper>
-            </div>
-          </div>
+              </div>
 
-          {/* RIGHT: Info */}
+              {/* Admin Dots */}
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
+                {adminImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      adminScrollRef.current?.scrollTo({
+                        left: i * adminScrollRef.current.offsetWidth,
+                        behavior: "smooth",
+                      });
+                      setAdminActiveIndex(i);
+                    }}
+                    className={`h-2 rounded-full transition-all ${
+                      i === adminActiveIndex
+                        ? "bg-white w-4"
+                        : "bg-white/40 w-2"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Admin Info */}
           <div className="space-y-6">
             <div>
               <h3 className="font-semibold text-text">Tech Stack</h3>
@@ -286,25 +288,20 @@ export default function ProjectDetails() {
                 ))}
               </div>
             </div>
-
             <div>
               <h3 className="font-semibold text-text">Role</h3>
-              <p className="text-text-muted">Backend Developer</p>
+              <p className="text-sm text-text-muted md:text-lg">
+                Backend Developer
+              </p>
             </div>
-
             <div>
               <h3 className="font-semibold text-text">Timeline</h3>
-              <p className="text-text-muted">2 Months</p>
+              <p className="text-sm text-text-muted md:text-lg">2 Months</p>
             </div>
-
-            {/* Buttons */}
             <div className="flex gap-4 mt-4">
-              {/* <button className="px-5 py-2 text-white rounded-lg bg-primary">
-                Live Demo
-              </button> */}
               <a
                 href="https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel"
-                className="flex px-5 py-2 border rounded-lg"
+                className="flex px-5 py-2 border rounded-lg text-text"
               >
                 <Github size={18} className="me-1" />
                 GitHub
@@ -312,73 +309,87 @@ export default function ProjectDetails() {
             </div>
           </div>
         </motion.div>
+
+        {/* Admin Details */}
         <motion.div
           variants={fadeIn("up", 0.4)}
           className="w-full font-serif text-text mt-15"
         >
           <h4 className="text-xl text-primary">Details</h4>
-          <p className="mt-3 text-text-muted">
+          <p className="mt-3 text-sm text-text-muted md:text-lg">
             A full-stack web application for pizza ordering with role-based
             admin dashboard, order management, and reporting system built using
             Laravel.
           </p>
-
           <h4 className="flex items-center text-xl text-primary mt-7">
             <TrendingUp size={20} className="me-1" />
             Highlights
           </h4>
-          <ul className="mt-3 ">
-            {adminHighlights.map((highlight) => (
-              <li className="mb-3">{highlight}</li>
+          <ul className="mt-3">
+            {adminHighlights.map((highlight, index) => (
+              <li key={index} className="mb-3 text-sm md:text-lg">
+                {highlight}
+              </li>
             ))}
           </ul>
         </motion.div>
-      </motion.div>
-      {/* User */}
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        className="max-w-5xl mx-auto mt-30"
-      >
+
+        {/* ─── USER SECTION ─── */}
         <motion.h2
           variants={fadeIn("up", 0.2)}
-          className="mb-5 text-2xl text-center text-text md:text-3xl"
+          className="mb-5 text-2xl text-center text-text md:text-3xl mt-30"
         >
           User Site
         </motion.h2>
 
-        <div className="grid gap-10 md:grid-cols-2">
-          {/* LEFT: Images */}
-          <motion.div variants={fadeIn("up", 0.3)}>
-            <div className="w-full h-[200px] md:h-[300px] overflow-hidden bg-gray-900 rounded-xl flex items-center justify-center">
-              <Swiper
-                className="h-full"
-                modules={[Autoplay, Navigation]}
-                navigation
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
+        <div className="grid w-full min-w-0 gap-6 md:gap-10 md:grid-cols-2">
+          {/* LEFT: User Images */}
+          <motion.div variants={fadeIn("up", 0.3)} className="min-w-0">
+            <div className="relative w-full h-[220px] md:h-[320px] overflow-hidden bg-gray-800 rounded-xl">
+              <div
+                ref={userScrollRef}
+                onScroll={handleUserScroll}
+                className="flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
               >
                 {userImages.map((user, index) => (
-                  <SwiperSlide
-                    className="flex items-center justify-center h-full"
+                  <div
                     key={index}
+                    className="flex flex-col items-center justify-center h-full min-w-full gap-2 p-3 snap-center"
                   >
                     <img
                       src={user.src}
                       alt={user.alt}
-                      className="object-contain w-full h-full"
+                      className="object-contain w-full max-h-[180px] md:max-h-[270px]"
                     />
-                  </SwiperSlide>
+                    <p className="mt-2 text-xs text-center text-white md:text-sm">
+                      {user.title}
+                    </p>
+                  </div>
                 ))}
-              </Swiper>
+              </div>
+
+              {/* User Dots */}
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
+                {userImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      userScrollRef.current?.scrollTo({
+                        left: i * userScrollRef.current.offsetWidth,
+                        behavior: "smooth",
+                      });
+                      setUserActiveIndex(i);
+                    }}
+                    className={`h-2 rounded-full transition-all ${
+                      i === userActiveIndex ? "bg-white w-4" : "bg-white/40 w-2"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT: Info */}
+          {/* RIGHT: User Info */}
           <motion.div variants={fadeIn("up", 0.4)} className="space-y-6">
             <div>
               <h3 className="font-semibold text-text">Tech Stack</h3>
@@ -393,25 +404,20 @@ export default function ProjectDetails() {
                 ))}
               </div>
             </div>
-
             <div>
               <h3 className="font-semibold text-text">Role</h3>
-              <p className="text-text-muted">Backend Developer</p>
+              <p className="text-sm text-text-muted md:text-lg">
+                Backend Developer
+              </p>
             </div>
-
             <div>
               <h3 className="font-semibold text-text">Timeline</h3>
-              <p className="text-text-muted">2 Months</p>
+              <p className="text-sm text-text-muted md:text-lg">2 Months</p>
             </div>
-
-            {/* Buttons */}
             <div className="flex gap-4 mt-4">
-              {/* <button className="px-5 py-2 text-white rounded-lg bg-primary">
-                Live Demo
-              </button> */}
               <a
                 href="https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel"
-                className="flex px-5 py-2 border rounded-lg"
+                className="flex px-3 py-2 text-sm border rounded-lg text-text md:px-5 md:text-lg"
               >
                 <Github size={18} className="me-1" />
                 GitHub
@@ -419,25 +425,28 @@ export default function ProjectDetails() {
             </div>
           </motion.div>
         </div>
+
+        {/* User Details */}
         <motion.div
           variants={fadeIn("up", 0.5)}
           className="w-full font-serif text-text mt-15"
         >
           <h4 className="text-xl text-primary">Details</h4>
-          <p className="mt-3 text-text-muted">
+          <p className="mt-3 text-sm md:text-lg text-text-muted">
             The user-facing site allows customers to browse the menu, customize
-            pizzas with toppings, and place orders بسهولة through an intuitive
-            and responsive interface. It provides a smooth ordering experience
-            with secure authentication and personal account management.
+            pizzas with toppings, and place orders through an intuitive and
+            responsive interface. It provides a smooth ordering experience with
+            secure authentication and personal account management.
           </p>
-
           <h4 className="flex items-center text-xl text-primary mt-7">
             <TrendingUp size={20} className="me-1" />
             Highlights
           </h4>
-          <ul className="mt-3 ">
-            {userHighlight.map((highlight) => (
-              <li className="mb-3">{highlight}</li>
+          <ul className="mt-3">
+            {userHighlight.map((highlight, index) => (
+              <li key={index} className="mb-3 text-sm md:text-lg">
+                {highlight}
+              </li>
             ))}
           </ul>
         </motion.div>

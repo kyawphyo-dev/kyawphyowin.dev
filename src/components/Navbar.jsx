@@ -11,6 +11,7 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false); // 🔥 NEW
   const { isDark, changeTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState("home");
 
   //Nav hide and show
   useEffect(() => {
@@ -63,7 +64,16 @@ export default function Navbar() {
           }`}
         >
           {navItems.map((item) => (
-            <Link to={`${item}`} key={item} className={``}>
+            <Link
+              to={`${item}`}
+              key={item}
+              onClick={() => {
+                setActiveSection(item);
+              }}
+              className={`text-lg  ${
+                activeSection === item ? "text-primary" : "text-text"
+              }`}
+            >
               {item.toUpperCase()}
             </Link>
           ))}
@@ -118,7 +128,9 @@ export default function Navbar() {
 
               {/* Light and Dark Toggle */}
               <button
-                onClick={() => changeTheme(isDark ? "light" : "dark")}
+                onClick={() => {
+                  changeTheme(isDark ? "light" : "dark"), setIsOpen(false);
+                }}
                 className={`relative flex items-center w-14 h-8  rounded-full p-1 transition-colors duration-300 ${
                   isDark ? "bg-gray-200" : "bg-gray-700"
                 }`}
@@ -139,18 +151,19 @@ export default function Navbar() {
 
             {/* Links */}
             {navItems.map((item) => (
-              <button
+              <Link
+                to={`${item}`}
                 key={item}
                 onClick={() => {
                   setActiveSection(item);
                   setIsOpen(false);
                 }}
-                className={`text-xl text-text ${
-                  activeSection === item ? "text-primary" : ""
+                className={`text-xl  ${
+                  activeSection === item ? "text-primary" : "text-text"
                 }`}
               >
                 {item.toUpperCase()}
-              </button>
+              </Link>
             ))}
           </motion.div>
         )}

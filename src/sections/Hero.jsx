@@ -76,7 +76,7 @@ export default function Hero() {
         <motion.div variants={fadeIn("up", 0.3)} className="flex gap-4 mt-8">
           <motion.a
             {...hoverLift}
-            href="/KyawPhyoWin_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}KPW_Resume.pdf`}
             download
             target="_blank"
             className={`bg-primary rounded-sm md:text-lg text-sm px-3 py-1 md:px-6 md:py-3 font-semibold hover:scale-105 transition flex items-center shadow-[0_0_20px_rgba(163,230,53,0.6)] ${

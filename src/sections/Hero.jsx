@@ -37,7 +37,7 @@ export default function Hero() {
                      shadow-[0_0_15px_rgba(74,222,128,0.6)] transition duration-300 animate-pulse"
         >
           <span className="w-2 h-2 bg-green-700 rounded-full "></span>
-          Available for new projects
+          Portfolio in Progress
         </p>
 
         {/* Name */}

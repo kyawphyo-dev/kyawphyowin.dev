@@ -11,7 +11,7 @@ export default function Hero() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      id="hero"
+      id="home"
       className="relative flex items-center justify-center min-h-screen overflow-hidden font-serif text-white bg-bg"
     >
       {/* ✅ Background (separate layer) */}
@@ -37,7 +37,7 @@ export default function Hero() {
                      shadow-[0_0_15px_rgba(74,222,128,0.6)] transition duration-300 animate-pulse"
         >
           <span className="w-2 h-2 bg-green-700 rounded-full "></span>
-          Portfolio in Progress
+          Open to Opportunities
         </p>
 
         {/* Name */}
@@ -88,6 +88,12 @@ export default function Hero() {
           <motion.a
             {...hoverLift}
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
             className={`border border-border text-text text-sm md:text-lg px-5 py-3 rounded-sm  transition ${
               isDark
                 ? "hover:bg-gray-200 hover:text-black"

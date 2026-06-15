@@ -1,19 +1,78 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Sun, Moon } from "lucide-react";
-import { hoverLift } from "../Utlils/animations";
+import { Sun, Moon } from "lucide-react";
 import useTheme from "../hooks/useTheme";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/profile/NavLogo.png"
+
+const navItems = [
+  "home",
+  "about",
+  "skills",
+  "projects",
+  "education",
+  "contact",
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isOpen, setIsOpen] = useState(false); // 🔥 NEW
+  const [isOpen, setIsOpen] = useState(false);
   const { isDark, changeTheme } = useTheme();
   const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage =
+    location.pathname === "/" || location.pathname.endsWith("/home");
 
-  //Nav hide and show
+  const scrollToSection = useCallback(
+    (sectionId) => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    },
+    []
+  );
+
+  const handleNavClick = (sectionId) => (e) => {
+    setActiveSection(sectionId);
+    setIsOpen(false);
+
+    if (!isHomePage) {
+      e.preventDefault();
+      navigate("/", { state: { scrollTo: sectionId } });
+      return;
+    }
+
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
+
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const sections = navItems
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target.id) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [isHomePage, location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -38,24 +97,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const navItems = [
-    "home",
-    "about",
-    "skills",
-    "projects",
-    "education",
-    "contact",
-  ];
-
   return (
     <>
       {/* 🔹 NAVBAR */}
       <nav
-        className={`fixed top-0 w-full font-serif flex justify-between items-center px-6 md:px-10 py-5 z-50 transition-all duration-300
-        ${scrolled ? "border-b border-[#292929] bg-bg/80 backdrop-blur-lg" : ""}
+        className={`fixed top-0 w-full font-serif flex justify-between items-center px-6 md:px-10 py-3 z-50 transition-all duration-300
+        ${scrolled ? "border-b border-[#292929] bg-bg/20 backdrop-blur-lg" : ""}
         ${showNav ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <h1 className="items-center my-2 text-2xl font-bold text-white cursor-pointer md:text-3xl"></h1>
+        <Link
+          to="/"
+          onClick={handleNavClick("home")}
+          className="text-2xl font-bold cursor-pointer md:text-3xl"
+        >
+          <img src={logo} alt="logo" className="w-20 h-20 rounded-full object-cover" />
+        </Link>
 
         {/* 🔹 Desktop Menu */}
         <div
@@ -65,16 +121,14 @@ export default function Navbar() {
         >
           {navItems.map((item) => (
             <Link
-              to={`${item}`}
+              to="/"
               key={item}
-              onClick={() => {
-                setActiveSection(item);
-              }}
-              className={`text-lg  ${
+              onClick={handleNavClick(item)}
+              className={`text-lg capitalize transition-colors hover:text-primary ${
                 activeSection === item ? "text-primary" : "text-text"
               }`}
             >
-              {item.toUpperCase()}
+              {item}
             </Link>
           ))}
           {/* Light and Dark Toggle */}
@@ -129,7 +183,8 @@ export default function Navbar() {
               {/* Light and Dark Toggle */}
               <button
                 onClick={() => {
-                  changeTheme(isDark ? "light" : "dark"), setIsOpen(false);
+                  changeTheme(isDark ? "light" : "dark");
+                  setIsOpen(false);
                 }}
                 className={`relative flex items-center w-14 h-8  rounded-full p-1 transition-colors duration-300 ${
                   isDark ? "bg-gray-200" : "bg-gray-700"
@@ -152,17 +207,14 @@ export default function Navbar() {
             {/* Links */}
             {navItems.map((item) => (
               <Link
-                to={`${item}`}
+                to="/"
                 key={item}
-                onClick={() => {
-                  setActiveSection(item);
-                  setIsOpen(false);
-                }}
-                className={`text-xl  ${
+                onClick={handleNavClick(item)}
+                className={`text-xl capitalize transition-colors ${
                   activeSection === item ? "text-primary" : "text-text"
                 }`}
               >
-                {item.toUpperCase()}
+                {item}
               </Link>
             ))}
           </motion.div>

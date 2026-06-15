@@ -19,7 +19,7 @@ export default function About() {
       label: "Frontend Focus",
     },
     {
-      value: "Next.js",
+      value: "Laravel",
       label: "Backend Focus",
     },
     {
@@ -114,7 +114,7 @@ export default function About() {
                 {/* Label Box */}
                 <div className="absolute left-[calc(10%+35px)] md:left-[calc(30%+100px)] top-[calc(90%+50px)] bg-primary px-6 py-3 -translate-y-1/2 min-w-[250px]">
                   <h3
-                    className={`font-bold text-lg${
+                    className={`font-bold text-lg ${
                       isDark ? "text-black" : "text-white"
                     }`}
                   >

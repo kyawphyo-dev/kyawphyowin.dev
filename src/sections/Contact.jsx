@@ -1,5 +1,5 @@
 import React from "react";
-import SectionTitle from "../components/sectionTitle";
+import SectionTitle from "../components/SectionTitle";
 import { Mail, Github, Linkedin, MapPin, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
@@ -16,7 +16,7 @@ export default function Contact() {
     {
       info: "kyawphyowin242965@gmail.com",
       icon: Mail,
-      link: "",
+      link: "mailto:kyawphyowin242965@gmail.com",
     },
     {
       info: "github.com/kyawphyo-dev",

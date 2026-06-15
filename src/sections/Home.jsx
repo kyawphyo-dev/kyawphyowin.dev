@@ -34,9 +34,9 @@ export default function Home() {
         <motion.div {...pageTransition}>
           <>
             <Hero />
-            <About />
-            <Skills />
             <Projects />
+            <Skills />
+            <About />
             <Education />
             <Contact />
           </>

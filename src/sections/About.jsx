@@ -42,7 +42,7 @@ export default function About() {
         whileInView="show"
         className="max-w-5xl w-full px-6"
       >
-        <SectionTitle id="02" label="About Me" title="Who I Am" />
+        <SectionTitle id="04" label="About Me" title="Who I Am" />
 
         <div className="grid md:grid-cols-2 gap-12">
           <motion.div

@@ -16,18 +16,20 @@ const projects = [
     tech: ["JavaScript", "AJAX", "Bootstrap", "AOS", "PHP", "Laravel", "Mysql"],
     github: "https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel",
     live: "#",
-    featured: true,
+    view: "/project/pizza",
+    featured: false,
     image: pizzaMenu,
   },
-  // {
-  //   id: 2,
-  //   title: "E-Commerce API",
-  //   description:
-  //     "Headless commerce backend with product management, cart, and payments.",
-  //   tech: ["NestJS", "MongoDB", "Stripe"],
-  //   github: "#",
-  //   live: "#",
-  // },
+  {
+    id: 2,
+    title: "Developer Forum",
+    description:
+      "Built a full-stack developer community platform inspired by Stack Overflow using Next.js, TypeScript, and MongoDB.",
+    tech: ["Next.js", "MongoDB", "JWT", "Typescript"],
+    github: "https://github.com/kyawphyo-dev/devforum-next.js",
+    view: "/project/devforum",
+    featured: true,
+  },
   // {
   //   id: 3,
   //   title: "Dev Portfolio CMS",
@@ -65,7 +67,7 @@ export default function ProjectSection() {
         whileInView="show"
         className="w-full max-w-5xl mx-auto"
       >
-        <SectionTitle id="04" label="Projects" title="My Work" />
+        <SectionTitle id="02" label="Projects" title="My Work" />
 
         <motion.div variants={fadeIn("up", 0.2)} {...hoverLift}>
           {featured && <FeaturedProject project={featured} img="" />}

@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 import useTheme from "../hooks/useTheme";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/profile/NavLogo.png"
+import logo from "../assets/profile/NavLogo.png";
 
 const navItems = [
   "home",
-  "about",
-  "skills",
   "projects",
+  "skills",
+  "about",
   "education",
   "contact",
 ];
@@ -26,15 +26,12 @@ export default function Navbar() {
   const isHomePage =
     location.pathname === "/" || location.pathname.endsWith("/home");
 
-  const scrollToSection = useCallback(
-    (sectionId) => {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    },
-    []
-  );
+  const scrollToSection = useCallback((sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
 
   const handleNavClick = (sectionId) => (e) => {
     setActiveSection(sectionId);
@@ -66,7 +63,7 @@ export default function Navbar() {
           setActiveSection(visible[0].target.id);
         }
       },
-      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5] }
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5] },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -110,7 +107,11 @@ export default function Navbar() {
           onClick={handleNavClick("home")}
           className="text-2xl font-bold cursor-pointer md:text-3xl"
         >
-          <img src={logo} alt="logo" className="w-20 h-20 rounded-full object-cover" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-20 h-20 rounded-full object-cover"
+          />
         </Link>
 
         {/* 🔹 Desktop Menu */}

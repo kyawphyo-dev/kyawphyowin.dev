@@ -20,7 +20,9 @@ export default function Projects({ project, index }) {
 
       <div className="flex gap-4 mt-6 text-sm">
         <a href={project.github}>↗ GitHub</a>
-        <a href={project.live}>↗ Live</a>
+        <a target="_blank" href={project.view}>
+          ↗ View Project
+        </a>
       </div>
     </div>
   );

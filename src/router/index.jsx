@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layouts/Layout";
-import ProjectDetails from "../components/PizzaShowCase";
+import PizzaShowCase from "../components/PizzaShowCase";
+import DevForumShowCase from "../components/DevForumShowCase";
 import Home from "../sections/Home";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
@@ -46,14 +47,18 @@ export default function Index() {
           },
           {
             path: "project/pizza",
-            element: <ProjectDetails />,
+            element: <PizzaShowCase />,
+          },
+          {
+            path: "project/devforum",
+            element: <DevForumShowCase />,
           },
         ],
       },
     ],
     {
       basename: "/kyawphyowin.dev/", // ✅ ADD THIS
-    }
+    },
   );
 
   return <RouterProvider router={router} />;

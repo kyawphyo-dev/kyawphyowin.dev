@@ -29,7 +29,7 @@ export default function FeatureProject({ project }) {
           <a target="_blank" href={project.github}>
             ↗ GitHub
           </a>
-          <Link to={`/project/pizza`}>↗ View Project</Link>
+          <Link to={`/project/devforum`}>↗ View Project</Link>
         </div>
       </div>
     </div>

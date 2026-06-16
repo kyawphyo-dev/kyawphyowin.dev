@@ -1,20 +1,24 @@
-import React, { useRef, useState, useEffect } from "react";
-import SectionTitle from "./SectionTitle";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import adminMenu from "../assets/PizzaOrderSyatem/Admin/a_addMenu.png";
+import adminlist from "../assets/PizzaOrderSyatem/Admin/a_adminList.png";
+import adminbooking from "../assets/PizzaOrderSyatem/Admin/a_booking.png";
+import admincategory from "../assets/PizzaOrderSyatem/Admin/a_category.png";
+import adminpassword from "../assets/PizzaOrderSyatem/Admin/a_changePassword.png";
+import admincombo from "../assets/PizzaOrderSyatem/Admin/a_combo.png";
 import admindash1 from "../assets/PizzaOrderSyatem/Admin/a_dashboard1.png";
 import admindash2 from "../assets/PizzaOrderSyatem/Admin/a_dashboard2.png";
 import adminlogin from "../assets/PizzaOrderSyatem/Admin/a_login.png";
-import adminMenu from "../assets/PizzaOrderSyatem/Admin/a_addMenu.png";
-import adminpizza from "../assets/PizzaOrderSyatem/Admin/a_pizza.png";
-import admincombo from "../assets/PizzaOrderSyatem/Admin/a_combo.png";
-import admincategory from "../assets/PizzaOrderSyatem/Admin/a_category.png";
 import adminorder from "../assets/PizzaOrderSyatem/Admin/a_orderList.png";
-import adminbooking from "../assets/PizzaOrderSyatem/Admin/a_booking.png";
-import adminlist from "../assets/PizzaOrderSyatem/Admin/a_adminList.png";
+import adminpizza from "../assets/PizzaOrderSyatem/Admin/a_pizza.png";
 import adminprofile from "../assets/PizzaOrderSyatem/Admin/a_profile.png";
-import adminpassword from "../assets/PizzaOrderSyatem/Admin/a_changePassword.png";
+import SectionTitle from "./SectionTitle";
 
+import UserBooking from "../assets/PizzaOrderSyatem/User/010_Ubooking.jpeg";
+import UserBookingHistory from "../assets/PizzaOrderSyatem/User/011_Ubookinghistory.png";
+import UserProfile from "../assets/PizzaOrderSyatem/User/012_Uprofile.png";
+import UserContact from "../assets/PizzaOrderSyatem/User/013_Ucontact.png";
 import UserLogin from "../assets/PizzaOrderSyatem/User/01_Ulogin.png";
 import UserHome from "../assets/PizzaOrderSyatem/User/02_UHome.png";
 import UserMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
@@ -24,18 +28,9 @@ import UserAddToCart from "../assets/PizzaOrderSyatem/User/06_Uaddtocard.png";
 import UserToppings from "../assets/PizzaOrderSyatem/User/07_Utoppings.png";
 import UserCart from "../assets/PizzaOrderSyatem/User/08_Ucartdetails.jpeg";
 import UserOrder from "../assets/PizzaOrderSyatem/User/09_Uorderhistory.png";
-import UserBooking from "../assets/PizzaOrderSyatem/User/010_Ubooking.jpeg";
-import UserBookingHistory from "../assets/PizzaOrderSyatem/User/011_Ubookinghistory.png";
-import UserProfile from "../assets/PizzaOrderSyatem/User/012_Uprofile.png";
-import UserContact from "../assets/PizzaOrderSyatem/User/013_Ucontact.png";
 
 import { Github, TrendingUp } from "lucide-react";
-import {
-  hoverLift,
-  pageTransition,
-  fadeIn,
-  staggerContainer,
-} from "../Utlils/animations";
+import { fadeIn, staggerContainer } from "../Utlils/animations";
 
 export default function ProjectDetails() {
   const adminImages = [
@@ -281,7 +276,7 @@ export default function ProjectDetails() {
                 {TechStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-1 text-xs border border-border text-primary me-1"
+                    className="px-2 py-1 text-xs border border-border text-primary me-1 rounded-sm"
                   >
                     {tech}
                   </span>
@@ -301,7 +296,7 @@ export default function ProjectDetails() {
             <div className="flex gap-4 mt-4">
               <a
                 href="https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel"
-                className="flex px-5 py-2 border rounded-lg text-text"
+                className="flex px-5 py-2 border rounded-lg text-text items-center  hover:bg-primary transition-all"
               >
                 <Github size={18} className="me-1" />
                 GitHub
@@ -417,7 +412,7 @@ export default function ProjectDetails() {
             <div className="flex gap-4 mt-4">
               <a
                 href="https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel"
-                className="flex px-3 py-2 text-sm border rounded-lg text-text md:px-5 md:text-lg"
+                className="flex px-3 py-2 text-sm border rounded-lg text-text md:px-5 md:text-lg items-center hover:bg-primary transition-all"
               >
                 <Github size={18} className="me-1" />
                 GitHub

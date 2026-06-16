@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 export default function Projects({ project, index }) {
@@ -19,10 +20,10 @@ export default function Projects({ project, index }) {
       </div>
 
       <div className="flex gap-4 mt-6 text-sm">
-        <a href={project.github}>↗ GitHub</a>
-        <a target="_blank" href={project.view}>
-          ↗ View Project
+        <a target="_blank" href={project.github}>
+          ↗ GitHub
         </a>
+        <Link to={project.view}> ↗ View Project</Link>
       </div>
     </div>
   );

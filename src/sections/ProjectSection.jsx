@@ -1,11 +1,11 @@
+import { motion } from "framer-motion";
 import React from "react";
-import SectionTitle from "../components/SectionTitle";
+import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
+import devhome from "../assets/DevForum/devhome.png";
+import pizzaMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
 import FeaturedProject from "../components/FeatureProject";
 import ProjectCard from "../components/Projects";
-import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
-
-import pizzaMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
+import SectionTitle from "../components/SectionTitle";
 
 const projects = [
   {
@@ -16,8 +16,8 @@ const projects = [
     tech: ["JavaScript", "AJAX", "Bootstrap", "AOS", "PHP", "Laravel", "Mysql"],
     github: "https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel",
     live: "#",
-    view: "/project/pizza",
     featured: false,
+    view: "/project/pizza",
     image: pizzaMenu,
   },
   {
@@ -29,6 +29,7 @@ const projects = [
     github: "https://github.com/kyawphyo-dev/devforum-next.js",
     view: "/project/devforum",
     featured: true,
+    image: devhome,
   },
   // {
   //   id: 3,

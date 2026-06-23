@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import PizzaShowCase from "../components/PizzaShowCase";
 import DevForumShowCase from "../components/DevForumShowCase";
+import DineOsShowCase from "../components/DineOsShowCase";
 import Home from "../sections/Home";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
@@ -52,6 +53,10 @@ export default function Index() {
           {
             path: "project/devforum",
             element: <DevForumShowCase />,
+          },
+          {
+            path: "project/dineos",
+            element: <DineOsShowCase />,
           },
         ],
       },

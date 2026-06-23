@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import React from "react";
 import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
 import devhome from "../assets/DevForum/devhome.png";
 import pizzaMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
 import FeaturedProject from "../components/FeatureProject";
 import ProjectCard from "../components/Projects";
 import SectionTitle from "../components/SectionTitle";
+import CLanding from "../assets/DineOs/01:CustomerLanding.png";
 
 const projects = [
   {
@@ -28,27 +28,20 @@ const projects = [
     tech: ["Next.js", "MongoDB", "JWT", "Typescript"],
     github: "https://github.com/kyawphyo-dev/devforum-next.js",
     view: "/project/devforum",
-    featured: true,
+    featured: false,
     image: devhome,
   },
-  // {
-  //   id: 3,
-  //   title: "Dev Portfolio CMS",
-  //   description:
-  //     "Headless CMS for managing portfolio content with API and admin panel.",
-  //   tech: ["React", "Express", "PostgreSQL", "JWT"],
-  //   github: "#",
-  //   live: "#",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Real-time Chat App",
-  //   description:
-  //     "WebSocket chat app with rooms, file sharing, and notifications.",
-  //   tech: ["React", "Socket.io", "Node.js"],
-  //   github: "#",
-  //   live: "#",
-  // },
+  {
+    id: 1,
+    title: "DineOs-Complete Restaurant Management Platform(Ongoing)",
+    description:
+      "DineOS is an all-in-one restaurant management platform that helps buffet and dine-in restaurants manage menus, orders, staff, inventory, and QR code ordering.",
+    tech: ["Next.js", "Supabase", "NextAuth.js", "Typescript", "Prisma ORM"],
+    github: "https://github.com/kyawphyo-dev/dineos-nextjs",
+    view: "/project/dineos",
+    featured: true,
+    image: CLanding,
+  },
 ];
 export default function ProjectSection() {
   const featured = projects.find((p) => p.featured);

@@ -34,7 +34,7 @@ export default function About() {
       whileInView="show"
       viewport={{ once: true }}
       id="about"
-      className="min-h-screen flex items-start justify-center font-serif bg-bg text-white px-6 py-16 md:py-30"
+      className="min-h-screen flex items-start justify-center font-serif bg-bg text-white px-6 pt-6 pb-12 md:pb-30"
     >
       <motion.div
         variants={staggerContainer}

@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layouts/Layout";
-import PizzaShowCase from "../components/PizzaShowCase";
-import DevForumShowCase from "../components/DevForumShowCase";
-import DineOsShowCase from "../components/DineOsShowCase";
+import PizzaShowCase from "../sections/PizzaShowCase";
+import DevForumShowCase from "../sections/DevForumShowCase";
+import DineOsShowCase from "../sections/DineOsShowCase";
 import Home from "../sections/Home";
 import About from "../sections/About";
 import Skills from "../sections/Skills";

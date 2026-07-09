@@ -44,7 +44,7 @@ export default function Skills() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="min-h-screen bg-bg text-text px-6 py-16 md:py-30 "
+      className="min-h-screen bg-bg text-text px-6 pt-6 pb-16 md:pb-30 "
       id="skills"
     >
       <motion.div

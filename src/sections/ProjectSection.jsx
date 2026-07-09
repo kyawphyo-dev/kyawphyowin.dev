@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
 import devhome from "../assets/DevForum/devhome.png";
@@ -52,7 +53,7 @@ export default function ProjectSection() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="min-h-screen px-6 py-16 font-serif bg-bg text-text md:py-30"
+      className="min-h-screen px-6 pt-6 pb-16 font-serif bg-bg text-text md:pb-30"
       id="projects"
     >
       <motion.div

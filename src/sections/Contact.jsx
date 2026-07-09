@@ -47,7 +47,7 @@ export default function Contact() {
       whileInView="show"
       viewport={{ once: true }}
       id="contact"
-      className="min-h-screen px-6 py-16 font-serif bg-bg text-text md:py-30"
+      className="min-h-screen px-6 pt-6 pb-16 font-serif bg-bg text-text md:pb-30"
     >
       <motion.div
         variants={staggerContainer}

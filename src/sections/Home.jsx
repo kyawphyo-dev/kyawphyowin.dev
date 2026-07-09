@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import Hero from "../sections/Hero";
 import About from "../sections/About";

@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import React from "react";
 
 export default function Projects({ project, index }) {
   return (
-    <div className="border border-border p-6 hover:bg-bg-hover">
-      <p className="text-text-muted">/{String(index).padStart(3, "0")}</p>
+    <div className="border border-border p-6 hover:bg-bg-hover transition-colors h-full">
+      <p className="text-text-muted">/{String(index).padStart(2, "0")}</p>
       <h3 className="text-2xl font-semibold mt-2">{project.title}</h3>
       <p className="text-text-muted mt-3">{project.description}</p>
 
-      <div className="flex flex-wrap gap-0 mt-4">
-        {project.tech.map((t, i) => (
+      <div className="flex flex-wrap gap-2 mt-4">
+        {project.tech.map((t) => (
           <span
-            key={i}
-            className="border border-border text-primary me-1 px-2 py-1 text-xs"
+            key={t}
+            className="border border-border text-primary px-2 py-1 text-xs"
           >
             {t}
           </span>
@@ -20,10 +19,17 @@ export default function Projects({ project, index }) {
       </div>
 
       <div className="flex gap-4 mt-6 text-sm">
-        <a target="_blank" href={project.github}>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={project.github}
+          className="hover:text-primary transition-colors"
+        >
           ↗ GitHub
         </a>
-        <Link to={project.view}> ↗ View Project</Link>
+        <Link to={project.view} className="hover:text-primary transition-colors">
+          ↗ View Project
+        </Link>
       </div>
     </div>
   );

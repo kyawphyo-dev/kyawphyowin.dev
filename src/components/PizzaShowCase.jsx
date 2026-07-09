@@ -199,7 +199,7 @@ export default function ProjectDetails() {
       >
         {/* Back Button */}
         <Link
-          to="/"
+          to="/projects"
           className="mb-6 text-sm text-text-muted opacity-70 hover:opacity-100"
         >
           ← Back to Projects

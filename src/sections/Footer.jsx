@@ -43,6 +43,7 @@ export default function Footer() {
               {...hoverLift}
               href="https://www.linkedin.com/in/kyawphyowin-dev/"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-primary underline"
             >
               <br />
@@ -61,6 +62,7 @@ export default function Footer() {
                 key={index}
                 href={contact.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-primary transition px-2"
               >
                 <Icon size={22} />

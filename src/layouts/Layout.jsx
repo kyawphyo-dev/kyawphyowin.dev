@@ -8,12 +8,13 @@ export default function Layout() {
   const { isDark } = useTheme();
   const location = useLocation();
   const body = document.body;
-  // Scroll to up
+  const isHomePage =
+    location.pathname === "/" || location.pathname.endsWith("/home");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Light and Dark
   useEffect(() => {
     if (isDark) {
       body.classList.add("bg-bg");
@@ -23,10 +24,13 @@ export default function Layout() {
       document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
+
   return (
     <div className="min-h-screen bg-bg">
       <Navbar />
-      <Outlet />
+      <main className={isHomePage ? undefined : "pt-24"}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

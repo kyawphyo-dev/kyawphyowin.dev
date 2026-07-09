@@ -5,7 +5,7 @@ import pizzaMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
 import FeaturedProject from "../components/FeatureProject";
 import ProjectCard from "../components/Projects";
 import SectionTitle from "../components/SectionTitle";
-import CLanding from "../assets/DineOs/01:CustomerLanding.png";
+import CLanding from "../assets/DineOs/customer/01:CustomerLanding.png";
 
 const projects = [
   {
@@ -32,8 +32,8 @@ const projects = [
     image: devhome,
   },
   {
-    id: 1,
-    title: "DineOs-Complete Restaurant Management Platform(Ongoing)",
+    id: 3,
+    title: "DineOs — Restaurant Management Platform",
     description:
       "DineOS is an all-in-one restaurant management platform that helps buffet and dine-in restaurants manage menus, orders, staff, inventory, and QR code ordering.",
     tech: ["Next.js", "Supabase", "NextAuth.js", "Typescript", "Prisma ORM"],
@@ -64,16 +64,16 @@ export default function ProjectSection() {
         <SectionTitle id="02" label="Projects" title="My Work" />
 
         <motion.div variants={fadeIn("up", 0.2)} {...hoverLift}>
-          {featured && <FeaturedProject project={featured} img="" />}
+          {featured && <FeaturedProject project={featured} />}
         </motion.div>
 
         <motion.div
           variants={fadeIn("up", 0.3)}
           className="grid gap-6 md:grid-cols-2"
         >
-          {others.map((p, i) => (
+          {others.map((p) => (
             <motion.div {...hoverLift} key={p.id}>
-              <ProjectCard project={p} index={i + 2} />
+              <ProjectCard project={p} index={p.id} />
             </motion.div>
           ))}
         </motion.div>

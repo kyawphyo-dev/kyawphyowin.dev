@@ -14,12 +14,12 @@ export default function Skills() {
     {
       title: "Backend",
       icon: Server,
-      items: ["PHP", "Laravel", "Node.js", "Next.js"],
+      items: ["PHP", "Laravel", "Node.js", "Next.js", "Prisma"],
     },
     {
       title: "Database",
       icon: Database,
-      items: ["MySQL", "Firebase"],
+      items: ["MySQL", "MongoDB", "Firebase", "Supabase"],
     },
     {
       title: "Cloud Technology",

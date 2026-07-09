@@ -132,7 +132,7 @@ export default function ProjectDetails() {
       >
         {/* Back Button */}
         <Link
-          to="/"
+          to="/projects"
           className="mb-6 text-sm text-text-muted opacity-70 hover:opacity-100"
         >
           ← Back to Projects
@@ -228,8 +228,10 @@ export default function ProjectDetails() {
             </div>
             <div className="flex gap-4 mt-4">
               <a
-                href="https://github.com/kyawphyo-dev/Pizza_Order_System_Laravel"
-                className="flex px-5 py-2 border rounded-lg text-text"
+                href="https://github.com/kyawphyo-dev/devforum-next.js"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex px-5 py-2 border rounded-lg text-text hover:bg-primary transition-all"
               >
                 <Github size={18} className="me-1" />
                 GitHub

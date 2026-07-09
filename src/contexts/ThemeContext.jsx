@@ -1,6 +1,12 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 const ThemeContext = createContext();
+
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return "dark";
+  return localStorage.getItem("theme") ?? "dark";
+};
+
 const ThemeReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_THEME":
@@ -14,16 +20,22 @@ const ThemeReducer = (state, action) => {
 };
 
 const ThemeContextProvider = ({ children }) => {
-  let [state, dispatch] = useReducer(ThemeReducer, {
-    theme: "dark",
+  const [state, dispatch] = useReducer(ThemeReducer, {
+    theme: getInitialTheme(),
   });
-  let changeTheme = (theme) => {
+
+  useEffect(() => {
+    localStorage.setItem("theme", state.theme);
+  }, [state.theme]);
+
+  const changeTheme = (theme) => {
     dispatch({
       type: "CHANGE_THEME",
       payload: theme,
     });
   };
-  let isDark = state.theme === "dark";
+
+  const isDark = state.theme === "dark";
 
   return (
     <ThemeContext.Provider value={{ ...state, changeTheme, isDark }}>

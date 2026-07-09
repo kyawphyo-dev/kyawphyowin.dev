@@ -1,17 +1,17 @@
 import React from "react";
 import SectionTitle from "../components/SectionTitle";
-import { Mail, Github, Linkedin, MapPin, Facebook } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, hoverLift } from "../Utlils/animations";
 import useTheme from "../hooks/useTheme";
 
 export default function Contact() {
   let { isDark } = useTheme();
-  let contactInfo = [
+  const contactInfo = [
     {
       info: "Kyaw Phyo Win",
-      icon: Facebook,
-      link: "https://www.facebook.com/share/1bh41B9Hio/",
+      icon: User,
+      link: null,
     },
     {
       info: "kyawphyowin242965@gmail.com",
@@ -65,20 +65,36 @@ export default function Contact() {
             <div className="mt-10">
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon;
+                const content = (
+                  <motion.div
+                    {...hoverLift}
+                    className="flex items-center px-5 py-3 mb-5 transition border border-border me-10 hover:bg-bg-hover"
+                  >
+                    <Icon className="text-text-muted" size={15} />
+                    <p className="text-text-muted ms-5">{contact.info}</p>
+                  </motion.div>
+                );
+
+                if (!contact.link) {
+                  return (
+                    <motion.div
+                      variants={fadeIn("up", index * 0.1)}
+                      key={contact.info}
+                    >
+                      {content}
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.a
                     variants={fadeIn("up", index * 0.1)}
-                    key={index}
+                    key={contact.info}
                     href={contact.link}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <motion.div
-                      {...hoverLift}
-                      className="flex items-center px-5 py-3 mb-5 transition border border-border me-10 hover:bg-bg-hover"
-                    >
-                      <Icon className=" text-text-muted" size={15} />
-                      <p className="text-text-muted ms-5">{contact.info}</p>
-                    </motion.div>
+                    {content}
                   </motion.a>
                 );
               })}

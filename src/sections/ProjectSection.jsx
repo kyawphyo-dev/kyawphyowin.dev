@@ -1,12 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { fadeIn, hoverLift, staggerContainer } from "../Utlils/animations";
-import devhome from "../assets/DevForum/devhome.png";
-import pizzaMenu from "../assets/PizzaOrderSyatem/User/03_Umenu.png";
 import FeaturedProject from "../components/FeatureProject";
 import ProjectCard from "../components/Projects";
 import SectionTitle from "../components/SectionTitle";
-import CLanding from "../assets/DineOs/customer/01:CustomerLanding.png";
 
 const projects = [
   {
@@ -19,7 +16,8 @@ const projects = [
     live: "#",
     featured: false,
     view: "/project/pizza",
-    image: pizzaMenu,
+    image:
+      "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583035/03_Umenu_sspicr.png",
   },
   {
     id: 2,
@@ -30,7 +28,8 @@ const projects = [
     github: "https://github.com/kyawphyo-dev/devforum-next.js",
     view: "/project/devforum",
     featured: false,
-    image: devhome,
+    image:
+      "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583269/devhome_n2zoru.png",
   },
   {
     id: 3,
@@ -41,7 +40,8 @@ const projects = [
     github: "https://github.com/kyawphyo-dev/dineos-nextjs",
     view: "/project/dineos",
     featured: true,
-    image: CLanding,
+    image:
+      "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583360/11_AdminSale_uiinay.png",
   },
 ];
 export default function ProjectSection() {

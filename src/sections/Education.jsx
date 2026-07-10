@@ -41,6 +41,15 @@ export default function Education() {
       completed: "February 2026",
       description:
         "Built full-stack applications using React and Firebase, including authentication and real-time database integration.",
+      active: false,
+    },
+    {
+      year: "2026",
+      title: "Next.js Full Stack Online Course  ",
+      subtitle: "Self-directed / Online Courses",
+      completed: "May 2026",
+      description:
+        "Completed a comprehensive full-stack web development course covering Next.js, React, TypeScript, Node.js, Prisma, Supabase, and PostgreSQL. Built production-style applications with authentication, RESTful APIs, database management, and responsive, user-focused interfaces.",
       active: true,
     },
   ];

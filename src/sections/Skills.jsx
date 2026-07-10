@@ -9,32 +9,48 @@ export default function Skills() {
     {
       title: "Frontend",
       icon: Monitor,
-      items: ["HTML", "CSS", "JavaScript", "React", "Bootstrap", "TypeScript"],
+      items: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Bootstrap",
+      ],
     },
     {
       title: "Backend",
       icon: Server,
-      items: ["PHP", "Laravel", "Node.js", "Next.js", "Prisma"],
+      items: ["PHP", "Laravel", "REST APIs", "Node.js", "Typescript", "MVC"],
     },
     {
       title: "Database",
       icon: Database,
-      items: ["MySQL", "MongoDB", "Firebase", "Supabase"],
+      items: [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Supabase",
+        "Prisma ORM",
+        "Mongoose",
+      ],
     },
     {
       title: "Cloud Technology",
       icon: Cloud,
-      items: ["AWS", "Datadog"],
+      items: ["AWS", "Datadog", "Firebase"],
     },
     {
       title: "Tools & Platforms",
       icon: Wrench,
-      items: ["Git", "GitHub", "Vercel", "Firebase", "Postman"],
+      items: ["Git", "GitHub", "Postman", "Cursor", "Claude", "Trae"],
     },
     {
       title: "Other",
       icon: Layers,
-      items: ["REST API", "MVC Architecture"],
+      items: ["REST API", "MVC Architecture", "GitLab CI/CD"],
     },
   ];
 

@@ -19,7 +19,7 @@ export default function About() {
       label: "Frontend Focus",
     },
     {
-      value: "Laravel",
+      value: "Node.js",
       label: "Backend Focus",
     },
     {
@@ -52,26 +52,35 @@ export default function About() {
             <p className="text-text-muted leading-relaxed">
               I am a passionate{" "}
               <strong className="text-text">Full-Stack Developer</strong> with a
-              strong foundation in modern web technologies. I have experience
-              working with HTML, CSS, JavaScript, React, and Laravel, and I
-              enjoy building responsive and user-friendly applications. I
-              recently completed my{" "}
-              <strong className="text-text font-bold">
-                {" "}
-                Bachelor of Engineering in Information Technology
-              </strong>{" "}
-              , where I developed projects focused on real-world problem
-              solving.
+              strong interest in building modern, scalable, and user-friendly
+              web applications. I specialize in developing responsive interfaces
+              and robust backend systems using{" "}
+              <strong className="text-text">
+                React, Next.js, TypeScript, Node.js, Prisma, and PostgreSQL
+              </strong>
+              , while also having experience with{" "}
+              <strong className="text-text">Laravel, PHP, and MySQL</strong>.
               <br />
-              <br />I am particularly interested in{" "}
-              <strong className="text-text font-bold font-serif">
-                backend development, API integration, and scalable system
-                design.
-              </strong>{" "}
-              I am continuously learning new technologies to improve my skills
-              and stay updated with industry trends. My goal is to become a
-              professional developer who creates efficient, impactful, and
-              high-quality web applications.
+              <br />I recently completed my{" "}
+              <strong className="text-text font-bold">
+                Bachelor of Engineering in Information Technology
+              </strong>
+              , where I strengthened my software engineering fundamentals
+              through academic and real-world projects. My portfolio includes
+              applications such as a restaurant management platform, developer
+              forum, and e-commerce systems that demonstrate my ability to
+              design, develop, and deploy complete web solutions.
+              <br />
+              <br />I am particularly passionate about{" "}
+              <strong className="text-text font-bold">
+                backend development, RESTful API design, database architecture,
+                and scalable system development
+              </strong>
+              . I enjoy solving complex problems, learning new technologies, and
+              writing clean, maintainable code. My goal is to contribute to
+              meaningful products while continuously growing as a software
+              engineer and delivering high-quality solutions that create real
+              value.
             </p>
 
             <div className="bg-bg text-white py-2 px-6 w-full ">
@@ -101,7 +110,7 @@ export default function About() {
           <div>
             <motion.div
               variants={fadeIn("up", 0.4)}
-              className="relative w-full flex justify-center items-center py-2 md:py-11 bg-bg"
+              className="relative w-full flex justify-center items-center py-2 bg-bg"
             >
               {/* Profile Picture */}
               <div className="relative">

@@ -3,8 +3,8 @@
 /* Light Mode */
 @theme {
   /* Backgrounds */
-  --color-bg: #f8fafc; /* soft White */
-  --color-bg-hover: #d1d5db;
+  --color-bg: #OBOBOB; /* soft White  #f8fafc*/
+  --color-bg-hover: #d5e5f5;
   --color-card: oklch(100% 0 0); /* white */
 
   /* Text */

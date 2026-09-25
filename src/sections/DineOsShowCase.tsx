@@ -102,41 +102,7 @@ export default function DineOsShowCase() {
           },
         ],
       },
-      {
-        id: "customer-ordering",
-        title: "Customer Ordering Experience",
-        description:
-          "DineOS includes a customer-facing ordering flow for dine-in restaurants. Customers can access the menu from their table, browse categories and items, create an order, and follow the order journey. The complete production ordering and real-time tracking experience is still being finalized.",
-        highlights: [
-          "QR-code entry point for table-specific customer ordering.",
-          "Digital menu browsing with categories, images, prices, and availability.",
-          "Customer cart and order-submission flow.",
-          "Orders connect to tables and dining sessions.",
-          "Real-time customer order updates are planned as a future enhancement.",
-        ],
-        images: [
-          {
-            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583427/01_CustomerLanding_igxjso.png",
-            title: "Customer Landing",
-            alt: "DineOS customer landing page",
-          },
-          {
-            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583427/02_CustomerMenus_jmmpvv.png",
-            title: "Browse Menu",
-            alt: "DineOS customer menu browsing interface",
-          },
-          {
-            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583429/03_CustomerCart_pkchy2.png",
-            title: "Customer Cart",
-            alt: "DineOS customer cart",
-          },
-          {
-            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1783583430/04_CustomerOrders_rqqe1f.png",
-            title: "Order Tracking",
-            alt: "DineOS customer order tracking interface",
-          },
-        ],
-      },
+
       {
         id: "staff-dashboard",
         title: "Staff Dashboard",
@@ -151,12 +117,34 @@ export default function DineOsShowCase() {
         ],
         images: [
           {
-            src: createPlaceholder(
-              "Staff Dashboard",
-              "Reservation, table, and dining-session workflow in progress",
-            ),
-            title: "Staff Dashboard - Coming Soon",
-            alt: "Placeholder for the DineOS staff dashboard",
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317835/01_Front_Staff_Dashbaord_qrllir.png",
+            title: "Front Staff Dashboard",
+            alt: "the DineOS staff dashboard",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317836/02_Start_Session_bgqtzx.png",
+            title: "Select table and start session",
+            alt: "Select table and start session",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317836/03_Make_Resvarsation_jxr6nn.png",
+            title: "Make Reservation",
+            alt: "Make Reservation",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317836/04_Reservation_Action_qsqwu7.png",
+            title: "Reservation Action Control",
+            alt: "Reservation Action Control",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317837/05_Close_Session_mwgzgk.png",
+            title: "Close Session",
+            alt: "Close Session",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790317835/06_Table_Cleaning_ny9nav.png",
+            title: "Table Cleaning",
+            alt: "Table Cleaning",
           },
         ],
       },
@@ -174,12 +162,19 @@ export default function DineOsShowCase() {
         ],
         images: [
           {
-            src: createPlaceholder(
-              "Kitchen Dashboard",
-              "Order queue and preparation workflow in progress",
-            ),
-            title: "Kitchen Dashboard - Coming Soon",
-            alt: "Placeholder for the DineOS kitchen dashboard",
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790316655/01_Kitchen_Dashboard_with_No_Order_hdm6st.png",
+            title: "Kitchen Dashboard with No order",
+            alt: "Kitchen Dashboard with No order",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790316656/02_With_Incoming_Order_zztktj.png",
+            title: "Kitchen Dashboard with Incoming Order",
+            alt: "Kitchen Dashboard with Incoming Order",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790316655/03_Order_with_different_Status_owgvro.png",
+            title: "Order with different Status",
+            alt: "Order with different Status",
           },
         ],
       },
@@ -197,12 +192,89 @@ export default function DineOsShowCase() {
         ],
         images: [
           {
-            src: createPlaceholder(
-              "Cashier Dashboard",
-              "Billing, payments, and receipt workflow in progress",
-            ),
-            title: "Cashier Dashboard - Coming Soon",
-            alt: "Placeholder for the DineOS cashier dashboard",
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257803/01_View_Active_Sessions_mfzlnu.png",
+            title: "View Active Sessions",
+            alt: "View Active Sessions",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257804/02_Order_Summery_of_a_Session_tqp8ro.png",
+            title: "Order Summary of a Session",
+            alt: "Order Summary of a Session",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257804/03_Discount_And_Createbill_cbz0rz.png",
+            title: "Discount and Create Bill",
+            alt: "Create Bill from a Session",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257804/04_Select_Paymment_and_Record_lkhkyu.png",
+            title: "Select Payment and Record",
+            alt: "Select Payment and Record",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257804/05_Comfirm_And_Close_session_qfwxpl.png",
+            title: "Comfirm, Print Receipt and Close Session",
+            alt: "Comfirm,Print Receipt and Close Session",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790257804/06_Bill_history_dx4qlw.png",
+            title: "Bill History",
+            alt: "Bill History",
+          },
+        ],
+      },
+      {
+        id: "customer-ordering",
+        title: "Customer Ordering Experience",
+        description:
+          "DineOS includes a customer-facing ordering flow for dine-in restaurants. Customers can access the menu from their table, browse categories and items, create an order, and follow the order journey. The complete production ordering and real-time tracking experience is still being finalized.",
+        highlights: [
+          "QR-code entry point for table-specific customer ordering.",
+          "Digital menu browsing with categories, images, prices, and availability.",
+          "Customer cart and order-submission flow.",
+          "Orders connect to tables and dining sessions.",
+          "Real-time customer order updates are planned as a future enhancement.",
+        ],
+        images: [
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313543/01_NoSessionLanding_texiui.png",
+            title: "No Session Warning Page",
+            alt: "No Session Landing",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313543/01_SessionLanding_ndx3hv.png",
+            title: "Customer Landing",
+            alt: "DineOS customer landing page",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313546/02_BrowseMenuAndAddToCard_ieqg5a.png",
+            title: "Browse Menu And Add To Card",
+            alt: "DineOS customer menu browsing interface",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313544/03_CustomerCart_qnfty6.png",
+            title: "Customer Cart",
+            alt: "DineOS customer cart",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313546/04_OrderTracking_yhicwj.png",
+            title: "Order Tracking and History",
+            alt: "DineOS customer order tracking interface",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313546/05_Sidemenu_jds6vt.png",
+            title: "Customer Side Menu",
+            alt: "Customer Side Menu",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313546/06_ChangeLanguageModel_Demo_ni3ooc.png",
+            title: "Change Language Model Demo",
+            alt: "Change Language Model Demo",
+          },
+          {
+            src: "https://res.cloudinary.com/dtdjpi4qs/image/upload/v1790313542/07_TableScan_Demo_vuxr3k.png",
+            title: "Table Scan Demo",
+            alt: "Table Scan Demo",
           },
         ],
       },
